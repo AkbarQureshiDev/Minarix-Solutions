@@ -1,48 +1,42 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { HiArrowRight } from "react-icons/hi2";
+
 
 const Hero: React.FC = () => {
-  // Avatars data based on screenshot
-  const avatars = [
-    { name: "Leader 1", src: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { name: "Leader 2", src: "https://randomuser.me/api/portraits/women/44.jpg" },
-    { name: "Leader 3", src: "https://randomuser.me/api/portraits/women/65.jpg" },
-    { name: "Leader 4", src: "https://randomuser.me/api/portraits/men/78.jpg" },
-    { name: "Leader 5", src: "https://randomuser.me/api/portraits/men/81.jpg" },
-  ];
-
   return (
     <section className="font-inter w-full min-h-screen bg-black pt-32 pb-20 relative overflow-hidden">
-      {/* Light Diagonal Shade Gradient (Matches screenshot subtle shadow) */}
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(135deg,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0)_50%,rgba(0,0,0,0.01)_100%)]" />
 
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center relative z-10 text-center">
-        
-        {/* Top Status Pill */}
+
+        {/* Top Pill */}
         <div className="flex items-center gap-3 bg-white px-5 py-2 rounded-full border border-gray-100 shadow-sm mb-12">
           <div className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
           <span className="text-sm font-medium text-gray-700">
-            Booking Open — <span className="font-semibold text-gray-900">2 Spots Left</span>
+            Your <span className="font-semibold text-gray-900">All-in-One</span> Digital Agency
           </span>
         </div>
 
-        {/* --- Main Heading Row --- */}
-        <div className="relative mb-12 flex flex-col items-center">
-          
-          {/* Top Line of Heading */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-serif-heading">
-            <h1 className="text-[100px] leading-[0.9] font-medium text-white tracking-[-0.03em]">
-              Unlimited
+        {/* Main Heading */}
+        <div className="relative mb-10 flex flex-col items-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            <h1 className="text-[90px] leading-[0.9] font-medium text-white tracking-[-0.03em]">
+              We
             </h1>
-            
-            {/* --- Floating Visual Mockup Badge --- */}
+
+            {/* Highlighted: Build */}
+            <h1 className="text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent">
+              Build
+            </h1>
+
+            {/* Floating Visual Badge */}
             <motion.div
               initial={{ y: 0 }}
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
               className="bg-white p-3 rounded-[28px] shadow-xl border border-gray-100 w-[160px] h-[100px] flex items-center justify-center"
             >
-              {/* This simulates the UI cards from the image */}
               <div className="grid grid-cols-2 gap-1.5 w-full h-full">
                 <div className="bg-[#E4B653] rounded-lg"></div>
                 <div className="bg-[#A7C080] rounded-lg"></div>
@@ -51,47 +45,58 @@ const Hero: React.FC = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-[100px] leading-[0.9] font-medium text-gray-200 tracking-[-0.03em]">
-              Design
+            {/* Highlighted: Brands */}
+            <h1 className="text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent">
+              Brands
             </h1>
           </div>
 
-          {/* Bottom Line of Heading */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-serif-heading mt-2">
-            <h1 className="text-[100px] leading-[0.9] font-medium text-gray-200 tracking-[-0.03em]">
-              for
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-2">
+            <h1 className="text-[90px] leading-[0.9] font-medium text-gray-200 tracking-[-0.03em]">
+              That
             </h1>
 
-            {/* --- Floating Dark Logo Badge --- */}
             <motion.div
               initial={{ y: 0 }}
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
               className="bg-[#1C1C1C] px-7 py-5 rounded-[28px] shadow-xl flex items-center justify-center w-[160px] h-[100px]"
             >
-              {/* Minimalist text/logo simulation */}
-              <span className="text-4xl font-extrabold text-[#757575] tracking-tight">/ / / /</span>
+              <span className="text-2xl font-bold text-white tracking-tight">GROW</span>
             </motion.div>
 
-            <h1 className="text-[100px] leading-[0.9] font-medium text-white tracking-[-0.03em]">
-              Solid Startups
+            {/* Highlighted: Online */}
+            <h1 className="text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent">
+              Online
             </h1>
           </div>
         </div>
-        {/* --- End Heading --- */}
 
-        {/* Subtext Paragraph */}
-        <p className="max-w-[580px] text-lg text-gray-200 leading-relaxed mb-16 px-4">
-          We help startups and brands create beautiful, functional products — fast and hassle-free.
+        {/* Subtext */}
+        <p className="max-w-[560px] text-lg text-white leading-relaxed mb-14 px-4">
+          Design, develop, market, and grow — everything your brand needs, under one roof.
         </p>
 
-        {/* --- Call to Action & Trust Block --- */}
-        <div className="flex items-center gap-6">
-          
-          {/* Avatar & Text Block */}
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row items-center gap-6">
+          <button className="group flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-semibold text-lg transition-colors shadow-lg active:scale-95">
+            Get Started
+            <HiArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
+          </button>
+
+          {/* Divider */}
+          <div className="w-px h-12 bg-gray-700 hidden sm:block" />
+
+          {/* Avatar Stack */}
           <div className="flex flex-col items-center gap-2">
             <div className="flex -space-x-3.5">
-              {avatars.map((avatar, idx) => (
+              {[
+                { name: "Leader 1", src: "https://randomuser.me/api/portraits/men/32.jpg" },
+                { name: "Leader 2", src: "https://randomuser.me/api/portraits/women/44.jpg" },
+                { name: "Leader 3", src: "https://randomuser.me/api/portraits/women/65.jpg" },
+                { name: "Leader 4", src: "https://randomuser.me/api/portraits/men/78.jpg" },
+                { name: "Leader 5", src: "https://randomuser.me/api/portraits/men/81.jpg" },
+              ].map((avatar, idx) => (
                 <img
                   key={idx}
                   src={avatar.src}
@@ -100,34 +105,9 @@ const Hero: React.FC = () => {
                 />
               ))}
             </div>
-            <span className="text-sm font-medium text-gray-200">
-              Trusted by Leaders
-            </span>
+            <span className="text-sm font-medium text-gray-200">Trusted by Leaders</span>
           </div>
-
-          {/* Divider */}
-          <div className="w-px h-12 bg-gray-700" />
-
-          {/* Main Button */}
-          <button className="group flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-semibold text-lg transition-colors shadow-lg active:scale-95">
-            Choose your plan
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </button>
-
         </div>
-        {/* --- End CTA Block --- */}
 
       </div>
     </section>
@@ -135,3 +115,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+

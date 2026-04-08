@@ -14,11 +14,12 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const menuItems = [
-    { name: "Process", href: "#" },
-    { name: "Work", href: "#" },
     { name: "About", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "FAQ", href: "#" },
+    { name: "Our Work", href: "#" },
+    { name: "Process", href: "#" },
+    { name: "Testimonials", href: "#" },
+    { name: "Our Team", href: "#" },
+    { name: "FAQs", href: "#" },
     { name: "Contact", href: "#" },
   ];
 
