@@ -1,94 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { HiArrowLongRight } from "react-icons/hi2"; // Clean, modern arrow
+import { HiArrowLongRight, HiArrowLongDown } from "react-icons/hi2";
+
+const steps = [
+  {
+    id: "1",
+    title: "Discovery Call",
+    description: "We start by understanding your business, goals, and target audience to build the right strategy.",
+    desktopStyle: "rotate(-6deg) translateY(4rem)",
+  },
+  {
+    id: "2",
+    title: "Strategy & Design",
+    description: "Our team crafts a tailored plan — from visuals to content — aligned with your brand identity.",
+    desktopStyle: "rotate(3deg) translateY(-1rem)",
+  },
+  {
+    id: "3",
+    title: "Execute & Deliver",
+    description: "We build, launch, and optimize — delivering results on time with full transparency.",
+    desktopStyle: "rotate(-1deg) translateY(6rem)",
+  },
+];
 
 const OurProcess: React.FC = () => {
-  const steps = [
-    {
-      id: "1",
-      title: "Subscribe",
-      description: "Choose a plan and request as many designs as you need.",
-      rotation: "-rotate-[6deg]",
-      translateY: "translate-y-16",
-    },
-    {
-      id: "2",
-      title: "Request",
-      description: "Choose a plan and request as many designs as you need.",
-      rotation: "rotate-[3deg]",
-      translateY: "-translate-y-4",
-    },
-    {
-      id: "3",
-      title: "Get Your Designs",
-      description: "Choose a plan and request as many designs as you need.",
-      rotation: "-rotate-[1deg]",
-      translateY: "translate-y-24",
-    },
-  ];
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
+  useEffect(() => {
+    const handler = () => setIsDesktop(window.innerWidth >= 768);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
   return (
-    <section className="relative w-full py-32 bg-[#F3F3F3] overflow-hidden flex flex-col items-center">
-      {/* Decorative Header */}
-      <div className="flex items-center gap-6 mb-8 opacity-60">
-        <div className="h-[1px] w-12 bg-gray-400"></div>
-        <span className="italic font-serif text-gray-600 text-lg">
-          Our Process, Explained
-        </span>
-        <div className="h-[1px] w-12 bg-gray-400"></div>
+    <section className="relative w-full py-32 bg-black overflow-hidden flex flex-col items-center font-[Poppins,sans-serif]">
+
+      {/* Section Label */}
+      <div className="flex items-center gap-4 mb-8">
+        <div className="h-px w-12 bg-white" />
+        <span className="italic font-serif text-3xl text-white tracking-wider">Our Process, Explained</span>
+        <div className="h-px w-12 bg-white" />
       </div>
 
-      <h2 className="text-[64px] font-medium text-black tracking-[-0.04em] mb-40 text-center">
+      <h2 className="text-[38px] md:text-[48px] font-semibold text-white tracking-[-0.03em] mb-16 text-center">
         Here's how it works
       </h2>
 
       <div className="max-w-[1200px] mx-auto px-10 relative w-full flex flex-col md:flex-row items-center justify-center gap-4">
-        
-        {/* Process Cards */}
+
         {steps.map((step, index) => (
           <React.Fragment key={step.id}>
             <motion.div
               initial={{ y: 0 }}
               animate={{ y: index % 2 === 0 ? [0, -10, 0] : [0, 10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: index * 0.6 }}
-              className={`
-                relative bg-white 
-                /* Reduced width from 420px to 360px */
-                w-[360px] aspect-[4/5]
-                p-10 rounded-[40px] 
-                
-                /* Outer Border Effect */
-                ring-[12px] ring-black/[0.02] 
-                border border-black/[0.05]
-                
-                /* Shadow */
-                shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)]
-                
-                flex flex-col justify-between 
-                z-20 ${step.rotation} ${step.translateY}
-              `}
+              className="relative bg-[#111] w-full max-w-[350px] md:w-[350px] mx-auto p-10 rounded-[36px] ring-[8px] ring-white/[0.02] border border-white/[0.08] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] flex flex-col justify-between z-20"
+              style={{ transform: isDesktop ? step.desktopStyle : undefined }}
             >
-              {/* Large Number */}
-              <span className="text-[100px] font-medium text-black leading-none tracking-tighter">
+              <span className="text-[64px] font-semibold text-[#01C000] leading-none tracking-tighter">
                 {step.id}
               </span>
-
-              {/* Content */}
-              <div className="mb-2">
-                <h3 className="text-[28px] font-semibold text-black mb-3 tracking-tight">
+              <div className="mt-5">
+                <h3 className="text-[18px] font-semibold text-white mb-2 tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-[#727272] text-[17px] leading-[1.5]">
+                <p className="text-gray-400 text-[14px] leading-[1.6]">
                   {step.description}
                 </p>
               </div>
             </motion.div>
 
-            {/* React Icon Connector (Hidden on mobile) */}
             {index < steps.length - 1 && (
-              <div className="hidden md:block z-30 text-[#FF4D00] text-4xl opacity-40 mx-[-10px]">
-                <HiArrowLongRight />
-              </div>
+              <>
+                {/* Desktop: right arrow */}
+                <div className="hidden md:block z-30 text-[#01C000] text-4xl opacity-60 mx-[-10px]">
+                  <HiArrowLongRight />
+                </div>
+                {/* Mobile: down arrow */}
+                <div className="md:hidden flex justify-center text-[#01C000] text-4xl opacity-60 my-2">
+                  <HiArrowLongDown />
+                </div>
+              </>
             )}
           </React.Fragment>
         ))}
