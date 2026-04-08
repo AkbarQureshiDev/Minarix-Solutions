@@ -1,17 +1,17 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { FaQuoteRight } from "react-icons/fa";
 
 const testimonials = [
   {
     quote:
-      "Working with Joris was a game-changer. He instantly understood our vision and translated it into a sleek, intuitive product. The process felt effortless, and the results exceeded our expectations.",
+      "Working with their team was a game-changer. They understood our vision instantly and delivered a sleek, high-performing website. The results exceeded our expectations.",
     author: "Sophie Lemaire",
     role: "Product Lead at Loomi",
     avatar: "https://i.pravatar.cc/150?u=sophie",
   },
   {
     quote:
-      "Joris brings clarity to chaos. His design work is not only beautiful but deeply strategic. He helped us rebrand from the ground up, and our audience response has been incredible.",
+      "Their digital marketing and SEO work transformed our online presence. We saw a 3x increase in leads within the first month. Truly a full-service agency that delivers.",
     author: "Milan Bakker",
     role: "Founder of Drifted Studio",
     avatar: "https://i.pravatar.cc/150?u=milan",
@@ -20,12 +20,19 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-[#D9D9D9] py-32 px-6 md:px-12">
-      {/* Container restricted to 1300px */}
+    <section className="bg-black py-24 px-6 md:px-12">
+
+      {/* Section Label */}
+      <div className="flex items-center justify-center gap-4 mb-16">
+        <div className="h-px w-12 bg-white" />
+        <span className="italic font-serif text-3xl text-white tracking-wider">Testimonials</span>
+        <div className="h-px w-12 bg-white" />
+      </div>
+
       <div className="max-w-[1300px] mx-auto relative flex flex-col md:flex-row items-start justify-between">
-        
-        {/* Central Vertical Divider - matching the thin, subtle line in the image */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-black/[0.08] -translate-x-1/2" />
+
+        {/* Desktop vertical divider */}
+        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white -translate-x-1/2" />
 
         {testimonials.map((item, index) => (
           <motion.div
@@ -34,41 +41,31 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className={`flex-1 flex flex-col px-4 md:px-16 ${
-              index === 1 ? "md:mt-64" : "md:mt-20" // Replicating the staggered vertical alignment
-            }`}
+            className={`flex-1 flex flex-col px-4 md:px-16 py-8 md:py-0 ${index === 1 ? "md:mt-48" : "md:mt-16"} ${index !== 0 ? "border-t border-white/10 md:border-t-0" : ""}`}
           >
-            <div className="relative w-full">
-              {/* Quote Mark - Positioned exactly like the image */}
-              <div className="absolute right-0 top-1 text-[#999999] text-2xl font-serif select-none">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="opacity-40">
-                   <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14C19.017 11.2386 16.7784 9 14.017 9V7C17.883 7 21.017 10.134 21.017 14V21H14.017ZM3.017 21L3.017 18C3.017 16.8954 3.91243 16 5.017 16H8.017V14C8.017 11.2386 5.77843 9 3.017 9V7C6.883 7 10.017 10.134 10.017 14V21H3.017Z" />
-                </svg>
+            <div className="relative w-full text-center md:text-left">
+
+              {/* Quote mark */}
+              <div className="md:absolute md:right-0 md:top-1 flex justify-center mb-4 md:mb-0 text-[#01C000] opacity-50 text-2xl">
+                <FaQuoteRight />
               </div>
 
-              {/* Quote Text - Using specific size and tracking */}
-              <p className="text-[26px] md:text-[32px] leading-[1.3] text-[#1A1A1A] font-medium tracking-[-0.02em] mb-12 pr-10">
+              {/* Quote text */}
+              <p className="text-[18px] md:text-[20px] leading-[1.6] text-white font-medium tracking-[-0.01em] mb-10 pr-0 md:pr-8">
                 {item.quote}
               </p>
 
-              {/* Author Info */}
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-300 ring-1 ring-black/5">
-                  <img
-                    src={item.avatar}
-                    alt={item.author}
-                    className="w-full h-full object-cover grayscale"
-                  />
+              {/* Author */}
+              <div className="flex items-center gap-4 justify-center md:justify-start">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-700 ring-1 ring-white/10">
+                  <img src={item.avatar} alt={item.author} className="w-full h-full object-cover grayscale" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[16px] font-semibold text-black tracking-tight">
-                    {item.author}
-                  </span>
-                  <span className="text-[15px] text-[#707070] font-normal tracking-tight">
-                    {item.role}
-                  </span>
+                  <span className="text-[15px] font-semibold text-[#01C000] tracking-tight">{item.author}</span>
+                  <span className="text-[14px] text-gray-400 font-normal tracking-tight">{item.role}</span>
                 </div>
               </div>
+
             </div>
           </motion.div>
         ))}
