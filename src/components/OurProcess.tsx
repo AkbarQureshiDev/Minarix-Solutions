@@ -37,11 +37,11 @@ const OurProcess: React.FC = () => {
       {/* Section Label */}
       <div className="flex items-center gap-4 mb-8">
         <div className="h-px w-12 bg-white" />
-        <span className="italic font-serif text-3xl text-white tracking-wider">Our Process, Explained</span>
+        <span className="italic font-serif text-xl md:text-3xl text-white tracking-wider">Our Process, Explained</span>
         <div className="h-px w-12 bg-white" />
       </div>
 
-      <h2 className="text-[38px] md:text-[48px] font-semibold text-white tracking-[-0.03em] mb-16 text-center">
+      <h2 className="text-[26px] md:text-[48px] font-semibold text-white tracking-[-0.03em] mb-16 text-center">
         Here's how it works
       </h2>
 
@@ -56,10 +56,10 @@ const OurProcess: React.FC = () => {
               className="relative bg-[#111] w-full max-w-[350px] md:w-[350px] mx-auto p-10 rounded-[36px] ring-[8px] ring-white/[0.02] border border-white/[0.08] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] flex flex-col justify-between z-20"
               style={{ transform: isDesktop ? step.desktopStyle : undefined }}
             >
-              <span className="text-[64px] font-semibold text-[#01C000] leading-none tracking-tighter">
+              <span className="text-[64px] font-semibold text-[#01C000] leading-none tracking-tighter text-center md:text-left">
                 {step.id}
               </span>
-              <div className="mt-5">
+              <div className="mt-5 text-center md:text-left">
                 <h3 className="text-[18px] font-semibold text-white mb-2 tracking-tight">
                   {step.title}
                 </h3>
