@@ -41,12 +41,12 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className={`flex-1 flex flex-col px-4 md:px-16 py-8 md:py-0 ${index === 1 ? "md:mt-48" : "md:mt-16"} ${index !== 0 ? "border-t border-white/10 md:border-t-0" : ""}`}
+            className={`flex-1 flex flex-col px-4 md:px-16 py-8 md:py-0 ${index === 1 ? "md:mt-48" : "md:mt-16"} ${index !== 0 ? "border-t border-white md:border-t-0" : ""}`}
           >
             <div className="relative w-full text-center md:text-left">
 
               {/* Quote mark */}
-              <div className="md:absolute md:right-0 md:top-1 flex justify-center mb-4 md:mb-0 text-[#01C000] opacity-50 text-2xl">
+              <div className="hidden md:flex md:absolute md:right-0 md:top-1 justify-center mb-4 md:mb-0 text-[#01C000] opacity-50 text-2xl">
                 <FaQuoteRight />
               </div>
 
