@@ -57,16 +57,16 @@ const About: React.FC = () => {
 
       <div className="max-w-[1300px] mx-auto px-6 w-full grid grid-cols-12 items-center gap-6">
 
-        {/* LEFT BADGES */}
-        <div className="col-span-3 flex flex-col gap-8">
+        {/* LEFT BADGES — hidden on mobile */}
+        <div className="hidden md:flex col-span-3 flex-col gap-8">
           <Badge icon={<IoVideocam />} label="Video Editing"    iconBg="bg-[#FF5C00]" delay={0}   transform="rotateY(25deg) rotateX(4deg)" offset="ml-2" />
           <Badge icon={<IoGlobe />}    label="Web Development"  iconBg="bg-[#01C000]" delay={0.5} transform="rotateY(25deg) rotateX(4deg)" offset="ml-14" />
           <Badge icon={<IoSearch />}   label="SEO"              iconBg="bg-[#00A3FF]" delay={1}   transform="rotateY(25deg) rotateX(4deg)" offset="ml-6" />
         </div>
 
         {/* CENTER HEADING */}
-        <div className="col-span-6 flex flex-col items-center text-center gap-5 px-4">
-          <h2 className="text-[42px] md:text-[52px] font-normal leading-[1.15] text-white tracking-[-0.03em]">
+        <div className="col-span-12 md:col-span-6 flex flex-col items-center text-center gap-5 px-4">
+          <h2 className="text-[32px] sm:text-[42px] md:text-[52px] font-normal leading-[1.15] text-white tracking-[-0.03em]">
             We help businesses grow their{" "}
             <span className="text-[#01C000]">digital presence</span>{" "}
             through creative strategy and execution
@@ -76,8 +76,8 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        {/* RIGHT BADGES */}
-        <div className="col-span-3 flex flex-col gap-8 items-end">
+        {/* RIGHT BADGES — hidden on mobile */}
+        <div className="hidden md:flex col-span-3 flex-col gap-8 items-end">
           <Badge icon={<IoMegaphone />}  label="Digital Marketing"  iconBg="bg-[#10B981]" delay={0.3} transform="rotateY(-25deg) rotateX(4deg)" offset="mr-2" />
           <Badge icon={<IoBrush />}      label="Graphic Designing"  iconBg="bg-[#FF008A]" delay={0.8} transform="rotateY(-25deg) rotateX(4deg)" offset="mr-16" />
           <Badge icon={<IoStorefront />} label="WordPress & Shopify" iconBg="bg-[#FFB800]" delay={1.3} transform="rotateY(-25deg) rotateX(4deg)" offset="mr-6" />
