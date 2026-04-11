@@ -28,5 +28,11 @@ body {
 }
 
 .animate-shimmer {
-  animation: shimmer 3s linear infinite;
+  animation: shimmer 5s linear infinite;
+}
+
+.passero-one-regular {
+  font-family: "Passero One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
