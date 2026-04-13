@@ -8,7 +8,6 @@ import Team from "../components/Team"
 import Faqs from "../components/Faqs"
 import Footer from "../components/Footer"
 import Projects from "../components/Projects"
-
 const Home = () => {
   return (
     <div>
