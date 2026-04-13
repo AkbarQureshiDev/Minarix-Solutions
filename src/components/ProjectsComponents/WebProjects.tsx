@@ -3,7 +3,8 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { FiGithub } from 'react-icons/fi';
 
 import institute from '../../assets/institute.png'
-import building from '../../assets/building.png'
+import management from '../../assets/management.png'
+import store from '../../assets/store.png'
 
 // 1. Define the Interface
 interface Project {
@@ -23,39 +24,39 @@ interface Project {
 // 2. Define the Data
 const projects: Project[] = [
   {
-    title: "Assisted Lives",
+    title: "MonitorHub (Software)",
     description: "A digital care management platform",
     longDescription: "Assisted Live is a digital care management platform that provides monitoring of carers, logging in and out, medication and task changes, to reviews, and automates the process of assessments.",
     role: "Frontend Developer",
-    year: "2025",
+    year: "2025 - 2026",
     timeline: "Feb 2025 - Present",
-    image:building,
+    image:management,
     technologies: ["Vue.js", "Bootstrap"],
     webServices: ["html2pdf.js", "moment", "QRCode", "Vue Draggable", "Apex Charts"],
     liveLink: "#",
     githubLink: "#"
   },
   {
-    title: "YouFirst",
+    title: "CozaStore (E-Commerce Store)",
     description: "A Human Resource Management(HRM) software",
     longDescription: "YouFirst is an enterprise-grade HRM solution designed to streamline employee lifecycles. From recruitment automation to performance tracking, it provides a unified dashboard.",
     role: "Fullstack Developer",
-    year: "2024 - 2025",
+    year: "2026",
     timeline: "Oct 2024 - Jan 2025",
-    image:institute,
+    image:store,
     technologies: ["React.js", "Tailwind CSS", "Node.js", "MongoDB"],
     webServices: ["Socket.io", "AWS S3", "Chart.js", "React Query", "Postmark API"],
     liveLink: "#",
     githubLink: "#"
   },
   {
-    title: "Project Alpha",
+    title: "DigitalEra Educational Institute (Website)",
     description: "E-commerce Analytics Dashboard",
     longDescription: "A high-performance dashboard built to visualize real-time sales data and customer behavior using advanced filtering and 3D data visualization components.",
     role: "Lead Architect",
-    year: "2024",
+    year: "2026",
     timeline: "Jan 2024 - Sept 2024",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e905b6c7d3?q=80&w=2340&auto=format&fit=crop",
+    image:institute,
     technologies: ["Next.js", "TypeScript", "Three.js"],
     webServices: ["Firebase", "Stripe API", "Google Cloud"],
     liveLink: "#",
@@ -83,7 +84,7 @@ const WebProjects: React.FC = () => {
         {/* Top Decoration */}
         <div className="flex items-center justify-center gap-4 mb-16">
           <div className="h-px w-12 bg-white" />
-          <span className="italic font-serif text-3xl text-white tracking-wider">Our Projects</span>
+          <span className="italic font-serif text-3xl text-white tracking-wider">Top Trending Projects</span>
           <div className="h-px w-12 bg-white" />
         </div>
 
@@ -100,7 +101,7 @@ const WebProjects: React.FC = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-all duration-700 scale-100 group-hover:scale-105"
                 />
               </div>
 
