@@ -1,16 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi2";
+import Spline from "@splinetool/react-spline";
 
 const Hero: React.FC = () => {
   return (
-    <section className="font-[Poppins,sans-serif] w-full md:min-h-screen bg-black pt-28 pb-20 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(135deg,rgba(0,0,0,0.01)_0%,rgba(0,0,0,0)_50%,rgba(0,0,0,0.01)_100%)]" />
+    <section className="font-[Poppins,sans-serif] w-full min-h-screen bg-black relative overflow-hidden">
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <Spline
+          scene="https://prod.spline.design/HbR70vyi-jYhZOr7/scene.splinecode"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center relative z-10 text-center">
+      {/* Dark overlay to keep text readable */}
+      <div className="absolute inset-0 bg-black/55 pointer-events-none z-[1]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 min-h-screen flex flex-col items-center justify-center relative z-[2] text-center py-20">
 
         {/* Top Pill */}
-        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm my-10 md:mt-0">
+        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm mb-8">
           <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse flex-shrink-0" />
           <span className="text-xs sm:text-sm font-medium text-gray-700">
             Your <span className="font-semibold text-gray-900">All-in-One</span> Digital Agency
