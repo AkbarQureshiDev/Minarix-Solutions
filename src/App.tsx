@@ -6,7 +6,6 @@ import Loader from "./components/Loader";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Prevent scrolling while loader is active
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = "hidden";
