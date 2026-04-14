@@ -61,7 +61,7 @@ const projects: Project[] = [
     webServices: ["Firebase", "Stripe API", "Google Cloud"],
     liveLink: "#",
     githubLink: "#"
-  }
+  },
 ];
 
 const WebProjects: React.FC = () => {
@@ -78,7 +78,7 @@ const WebProjects: React.FC = () => {
   }, [selectedProject]);
 
   return (
-    <section className="bg-black py-24 px-8 md:px-16 lg:px-24 font-sans antialiased text-white">
+    <section className="bg-black pt-24 pb-8 px-8 md:px-16 lg:px-24 font-sans antialiased text-white">
       <div className="max-w-[1300px] mx-auto relative">
         
         {/* Top Decoration */}
