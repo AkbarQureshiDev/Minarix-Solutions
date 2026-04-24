@@ -1,21 +1,40 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi2";
-import Spline from "@splinetool/react-spline";
+import heroBg from "../assets/Hero-bg.mp4";
+import mbHeroBg from "../assets/mbhero-bg.mp4";
+import ayyanImg from "../assets/testimonials/Ayyan.jpeg";
+import nadeemImg from "../assets/testimonials/Nadeem.png";
+import aliImg from "../assets/testimonials/ali.jpeg";
+import img1 from "../assets/testimonials/img1.jpeg";
 
 const Hero: React.FC = () => {
   return (
     <section className="font-[Poppins,sans-serif] w-full min-h-screen bg-black relative overflow-hidden">
-      {/* Spline 3D Background */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        <Spline
-          scene="https://prod.spline.design/HbR70vyi-jYhZOr7/scene.splinecode"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
+      {/* Desktop Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
+      >
+        <source src={heroBg} type="video/mp4" />
+      </video>
+
+      {/* Mobile Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 md:hidden"
+      >
+        <source src={mbHeroBg} type="video/mp4" />
+      </video>
 
       {/* Dark overlay to keep text readable */}
-      <div className="absolute inset-0 bg-black/55 pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-black/80 md:bg-black/90 pointer-events-none z-[1]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 min-h-screen flex flex-col items-center justify-center relative z-[2] text-center py-20">
 
@@ -91,7 +110,7 @@ const Hero: React.FC = () => {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
-          <button className="group flex items-center justify-center gap-3 bg-white text-black px-8 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg transition-colors shadow-lg active:scale-95 w-full sm:w-auto">
+          <button className="group flex items-center justify-center gap-3 bg-white text-black px-10 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg transition-colors shadow-lg active:scale-95 w-[75%] sm:w-auto">
             Get Started
             <HiArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
           </button>
@@ -103,17 +122,16 @@ const Hero: React.FC = () => {
           <div className="flex flex-col items-center gap-2">
             <div className="flex -space-x-3">
               {[
-                { name: "Leader 1", src: "https://randomuser.me/api/portraits/men/32.jpg" },
-                { name: "Leader 2", src: "https://randomuser.me/api/portraits/women/44.jpg" },
-                { name: "Leader 3", src: "https://randomuser.me/api/portraits/women/65.jpg" },
-                { name: "Leader 4", src: "https://randomuser.me/api/portraits/men/78.jpg" },
-                { name: "Leader 5", src: "https://randomuser.me/api/portraits/men/81.jpg" },
+                { name: "Ayyan", src: ayyanImg },
+                { name: "Ali", src: aliImg },
+                { name: "Nadeem", src: nadeemImg },
+                { name: "Leader", src: img1 },
               ].map((avatar, idx) => (
                 <img
                   key={idx}
                   src={avatar.src}
                   alt={avatar.name}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-4 border-black object-cover shadow-inner ring-1 ring-gray-700"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-[5px] border-black object-cover shadow-inner ring-1 ring-gray-700"
                 />
               ))}
             </div>
