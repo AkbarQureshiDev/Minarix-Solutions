@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import { FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -8,17 +9,22 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative w-full min-h-[80vh] bg-black flex flex-col items-center justify-center py-20 px-6 overflow-hidden text-white font-sans">
       
-      {/* 2. Main Content (Center) */}
       <div className="relative z-10 flex flex-col items-center text-center flex-grow justify-center">
-        <div className="flex items-center gap-4 mb-10">
-            <div className="h-px w-12 bg-white"></div>
-            <span className="italic font-serif text-3xl text-white tracking-wider">Let's Talk</span>
-            <div className="h-px w-12 bg-white"></div>
-        </div>
-
-        <h2 className="text-7xl md:text-[140px] font-medium tracking-tighter leading-none mb-8">
-          Let's <span className="text-[#01C000]">Connect</span>
-        </h2>
+        {/* Heading Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center justify-center gap-4 mb-20 text-center font-poppins relative z-10"
+        >
+          <div className="flex items-center gap-4">
+            <div className="h-px w-8 bg-gradient-to-r from-transparent to-white" />
+            <span className="italic text-4xl text-white tracking-wide">Let's Talk</span>
+            <div className="h-px w-8 bg-gradient-to-l from-transparent to-white" />
+          </div>
+          <h2 className="text-white/40 text-xl lg:text-2xl tracking-widest font-light mt-2">Start your project with us</h2>
+        </motion.div>
 
         <p className="text-lg md:text-xl text-white max-w-md leading-relaxed mb-12">
           Ready to grow your brand online? We're available for new projects and partnerships.

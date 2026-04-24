@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { HiPlus } from 'react-icons/hi';
 import { HiArrowRight } from 'react-icons/hi2';
 
@@ -32,17 +33,21 @@ const Faqs = () => {
     <section className="bg-black min-h-screen py-24 px-6 md:px-12 lg:px-24 font-sans">
       <div className="max-w-[1300px] mx-auto">
 
-        {/* Section Label */}
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <div className="h-px w-12 bg-white" />
-          <span className="italic font-serif text-3xl text-white tracking-wider">FAQs</span>
-          <div className="h-px w-12 bg-white" />
-        </div>
-
-        {/* Heading */}
-        <h2 className="text-4xl md:text-[64px] font-medium tracking-tight text-white text-center mb-16">
-          Your Questions, Answered
-        </h2>
+        {/* Heading Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center justify-center gap-4 mb-24 text-center font-poppins"
+        >
+          <div className="flex items-center gap-4">
+            <div className="h-px w-8 bg-gradient-to-r from-transparent to-white" />
+            <span className="italic text-4xl text-white tracking-wide">FAQs</span>
+            <div className="h-px w-8 bg-gradient-to-l from-transparent to-white" />
+          </div>
+          <h2 className="text-white/40 text-xl lg:text-2xl tracking-widest font-light mt-2">Answers to your common questions</h2>
+        </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
 
