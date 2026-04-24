@@ -50,46 +50,66 @@ const RollingNumber: React.FC<RollingNumberProps> = ({ number }) => {
 };
 
 const Stats = () => {
+  const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
+
+  React.useEffect(() => {
+    const handler = () => setIsDesktop(window.innerWidth >= 768);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
   const statsData = [
-    { number: '700+', label: 'Satisfied Clients' },
-    { number: '1500+', label: 'Projects Completed' },
-    { number: '100+', label: 'Brands' },
+    { 
+      number: '700+', 
+      label: 'Satisfied Clients',
+      desktopStyle: "rotate(-8deg) translateY(2rem) translateX(-1rem)",
+    },
+    { 
+      number: '1500+', 
+      label: 'Projects Completed',
+      desktopStyle: "rotate(4deg) translateY(-2rem) scale(1.05)",
+    },
+    { 
+      number: '100+', 
+      label: 'Brands',
+      desktopStyle: "rotate(8deg) translateY(2rem) translateX(1rem)",
+    },
   ];
 
   return (
-    /* The Fix: Added 'flex items-center' to vertically center the content */
-    <div className="bg-black w-full md:min-h-[300px] flex items-center py-12 md:py-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 items-center justify-items-center w-full !px-4 md:!px-0">
+    <section className="bg-black w-full py-24 md:py-40 overflow-hidden font-[Poppins,sans-serif]">
+      <div className="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
         {statsData.map((stat, index) => (
-          <div 
+          <motion.div 
             key={index} 
-            className="relative w-full flex flex-col md:flex-row items-center justify-center group"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={isDesktop ? { scale: 1.1, rotate: 0, zIndex: 10, transition: { duration: 0.3 } } : { scale: 1.02 }}
+            className="relative bg-[#0A0A0A] w-full max-w-[400px] p-10 md:p-14 rounded-[48px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-500 cursor-pointer group flex flex-col items-center text-center"
+            style={{ transform: isDesktop ? stat.desktopStyle : undefined }}
           >
-            <div className="relative flex flex-col md:flex-row items-center justify-center text-center">
-              {/* Background Rolling Number */}
-              <div className="text-[50px] sm:text-[70px] md:text-[120px] font-extrabold text-[#016000] leading-none select-none tracking-tighter flex !mb-2 md:!mb-0">
+            {/* Card Accent */}
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-[#01C000]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative z-10">
+              {/* Number with Rolling Animation */}
+              <div className="text-[50px] sm:text-[60px] md:text-[80px] font-black text-[#01C000] leading-none mb-4 tracking-tighter flex justify-center">
                 <RollingNumber number={stat.number} />
               </div>
               
-              {/* Label Text - Below on mobile, overlapping on desktop */}
-              <span className="relative md:absolute text-white text-lg sm:text-xl md:text-3xl font-bold uppercase tracking-tight whitespace-nowrap pointer-events-none">
+              {/* Label Text */}
+              <p className="text-white text-lg md:text-xl font-bold uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">
                 {stat.label}
-              </span>
+              </p>
             </div>
 
-            {/* Vertical Divider - Only on desktop */}
-            {index !== statsData.length - 1 && (
-              <div className="hidden md:block absolute right-0 h-40 w-[1px] bg-gray-500" />
-            )}
-            
-            {/* Horizontal Divider - Only on mobile */}
-            {index !== statsData.length - 1 && (
-              <div className="block md:hidden w-32 h-[1px] bg-gray-500 !mt-6" />
-            )}
-          </div>
+            {/* Background Glow Effect */}
+            <div className="absolute inset-0 bg-[#01C000]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[48px] pointer-events-none" />
+          </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
