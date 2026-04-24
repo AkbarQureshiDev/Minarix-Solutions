@@ -1,4 +1,11 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import aminaImg from '../assets/Team/Amna.jpeg';
+import haseebImg from '../assets/Team/Haseeb.png';
+import akbarImg from '../assets/Team/Akbar.jpeg';
+import muneebImg from '../assets/Team/Muneeb.jpeg';
+import humeraImg from '../assets/Team/Humera.jpeg';
+import khayamImg from '../assets/Team/Khayam.jpeg';
 
 interface TeamMember {
   name: string;
@@ -7,70 +14,149 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  { name: "Amina Gulzar", role: "CEO | Managing Director", image: "/path-to-img.jpg" },
-  { name: "Rana Haseeb Ahmad", role: "Brand Ambassador", image: "/path-to-img.jpg" },
-  { name: "M.Akbar Qureshi", role: "Full-Stack Developer", image: "/path-to-img.jpg" },
-  { name: "Rana Muneeb Ahmad", role: "Branding Specialist", image: "/path-to-img.jpg" },
-  { name: "Humera Gulzar", role: "", image: "/path-to-img.jpg" },
-  { name: "Khayam Riaz", role: "Operational Incharge", image: "/path-to-img.jpg" },
+  { name: "Amina Gulzar", role: "Brand Strategies", image: aminaImg },
+  { name: "Rana Haseeb Ahmad", role: "Digital Marketer", image: haseebImg },
+  { name: "M.Akbar Qureshi", role: "Full-Stack Developer", image: akbarImg },
+  { name: "Rana Muneeb Ahmad", role: "Senior Designer", image: muneebImg },
+  { name: "Humera Gulzar", role: "Junior Designer | Content Creator", image: humeraImg },
+  { name: "Khayam Riaz", role: "Video Editor", image: khayamImg },
 ];
 
 const Team: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    },
+  };
+
   return (
-    <div className="py-24 px-10 bg-black">
-      {/* Heading */}
-      <div className="flex items-center justify-center gap-4 mb-16">
-        <div className="h-px w-12 bg-white" />
-        <span className="italic font-serif text-3xl text-white tracking-wider">Our Team</span>
-        <div className="h-px w-12 bg-white" />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20 max-w-6xl mx-auto">
+    <div className="py-24 px-10 bg-[#050505] overflow-hidden relative" id="team">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#01C000]/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 blur-[120px] rounded-full" />
+
+      {/* Heading Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center justify-center gap-4 mb-24 text-center font-poppins"
+      >
+        <div className="flex items-center gap-4">
+          <div className="h-px w-8 bg-gradient-to-r from-transparent to-white" />
+          <span className="italic text-4xl text-white tracking-wide">Our Team</span>
+          <div className="h-px w-8 bg-gradient-to-l from-transparent to-white" />
+        </div>
+        <h2 className="text-white/40 text-xl lg:text-2xl tracking-widest font-light mt-2">Visionaries behind the craft</h2>
+      </motion.div>
+
+      {/* Grid Container */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24 max-w-7xl mx-auto"
+      >
         {teamMembers.map((member, index) => {
           const isGreen = index % 2 === 0;
 
+          const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+            e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+          };
+
           return (
-            <div
+            <motion.div
               key={index}
-              className="relative flex flex-col items-center group cursor-pointer"
+              variants={cardVariants}
+              onMouseMove={handleMouseMove}
+              whileHover={{ 
+                y: -15,
+                transition: { duration: 0.4, ease: "circOut" }
+              }}
+              className="relative flex flex-col items-center group cursor-none sm:cursor-pointer"
             >
-              {/* Pill */}
+              {/* Main Pill Shape */}
               <div
-                className={`w-[270px] h-[380px] rounded-full flex flex-col items-center pt-12 px-6 text-center
-                  transition-all duration-500 group-hover:-translate-y-3
+                className={`relative w-[280px] h-[400px] rounded-[140px] flex flex-col items-center pt-14 px-8 text-center
+                  transition-all duration-700 overflow-hidden
                   ${isGreen
-                    ? 'bg-[#01C000] shadow-[0_20px_60px_rgba(1,192,0,0.35)] group-hover:shadow-[0_30px_80px_rgba(1,192,0,0.55)]'
-                    : 'bg-white shadow-[0_20px_60px_rgba(255,255,255,0.15)] group-hover:shadow-[0_30px_80px_rgba(255,255,255,0.3)]'
+                    ? 'bg-gradient-to-b from-[#01C000] to-[#018000] shadow-[0_20px_60px_-15px_rgba(1,192,0,0.4)]'
+                    : 'bg-white shadow-[0_20px_60px_-15px_rgba(255,255,255,0.1)]'
                   }`}
               >
-                {/* Name */}
-                <h3 className={`font-bold text-xl leading-tight mb-2 transition-all duration-300 group-hover:scale-105 px-5 ${isGreen ? 'text-white' : 'text-black'}`}>
-                  {member.name}
-                </h3>
-                {/* Role */}
-                <p className={`text-[12px] uppercase tracking-widest font-medium ${isGreen ? 'text-white/75' : 'text-black/55'}`}>
-                  {member.role}
-                </p>
+                {/* Spotlight Shine Effect on Hover */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.4), transparent 80%)`,
+                  }}
+                />
 
-                {/* Inner arch shadow */}
-                <div className="absolute bottom-[2px] w-[266px] h-[220px] bg-black/10 rounded-full pointer-events-none" />
+                {/* Content */}
+                <div className="relative z-10 w-full font-poppins">
+                  <h3 className={`font-bold text-2xl leading-tight mb-2 tracking-tight transition-all duration-500 ${isGreen ? 'text-white' : 'text-black'}`}>
+                    {member.name}
+                  </h3>
+                  <p className={`text-[12px] font-medium ${isGreen ? 'text-white/75' : 'text-black/55'}`}>
+                    {member.role}
+                  </p>
+                </div>
 
-                {/* Profile image */}
-                <div className="absolute bottom-0 w-[270px] h-[270px] rounded-full overflow-hidden">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-white/20 backdrop-blur-md border border-white/20 shadow-inner">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                    />
+                {/* Circular Image Container - Positions at the Bottom */}
+                <div className="absolute bottom-0 w-[280px] h-[280px] translate-y-4 group-hover:translate-y-0 transition-transform duration-700 ease-[0.33,1,0.68,1]">
+                  {/* Subtle Arch Shadow */}
+                  <div className="absolute -top-4 inset-x-8 h-12 bg-black/10 blur-xl rounded-full opacity-50 group-hover:opacity-30 transition-opacity" />
+                  
+                  <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-black/5 relative group-hover:border-transparent transition-colors duration-500">
+                    <motion.div 
+                      className="w-full h-full"
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top filter group-hover:brightness-110 transition-all duration-700"
+                      />
+                    </motion.div>
+
+                    {/* Glass Overlay on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   </div>
                 </div>
               </div>
-            </div>
+
+              {/* Outside Glow/Shadow that intensifies on hover */}
+              <div className={`absolute -inset-4 rounded-[150px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl -z-10
+                ${isGreen ? 'bg-[#01C000]/20' : 'bg-white/10'}`} 
+              />
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 export default Team;
+
+
