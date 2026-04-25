@@ -1,115 +1,60 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from "react";
 
-interface DigitProps {
-  digit: string;
+interface StatItemProps {
+  value: string;
+  label: string;
+  description: string;
 }
 
-const Digit: React.FC<DigitProps> = ({ digit }) => {
-  // If it's not a number (like '+' or ','), just render it plain
-  if (isNaN(parseInt(digit))) {
-    return <span>{digit}</span>;
-  }
+const StatItem: React.FC<StatItemProps> = ({ value, label, description }) => (
+  <div className="flex flex-col items-center text-center px-6 md:border-l border-white/20 first:border-l-0">
+    <h2 className="text-5xl md:text-6xl font-bold text-[#01BD00] mb-2 font-mono">
+      {value}
+    </h2>
+    <p className="text-white text-xs md:text-sm uppercase tracking-[0.2em] font-bold mb-3">
+      {label}
+    </p>
+    <p className="text-gray-400 text-sm leading-relaxed max-w-[240px]">
+      {description}
+    </p>
+  </div>
+);
 
-  return (
-    <div className="relative h-[1em] overflow-hidden leading-none">
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: `-${digit}0%` }}
-        transition={{ 
-          duration: 2, 
-          ease: [0.45, 0.05, 0.55, 0.95],
-          delay: 0.2 
-        }}
-        className="flex flex-col"
-      >
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-          <span key={num}>{num}</span>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
-
-interface RollingNumberProps {
-  number: string;
-}
-
-const RollingNumber: React.FC<RollingNumberProps> = ({ number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-
-  return (
-    <div ref={ref} className="flex overflow-hidden">
-      {isInView &&
-        number.split('').map((char, index) => (
-          <Digit key={index} digit={char} />
-        ))}
-    </div>
-  );
-};
-
-const Stats = () => {
-  const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
-
-  React.useEffect(() => {
-    const handler = () => setIsDesktop(window.innerWidth >= 768);
-    window.addEventListener("resize", handler);
-    return () => window.removeEventListener("resize", handler);
-  }, []);
-
+const Stats: React.FC = () => {
   const statsData = [
-    { 
-      number: '700+', 
-      label: 'Satisfied Clients',
-      desktopStyle: "rotate(-8deg) translateY(2rem) translateX(-1rem)",
+    {
+      value: "700+",
+      label: "satisfied clients",
+      description:
+        "Driving success across Digital Marketing, SEO, and Social Media Management for diverse global clients.",
     },
-    { 
-      number: '1500+', 
-      label: 'Projects Completed',
-      desktopStyle: "rotate(4deg) translateY(-2rem) scale(1.05)",
+    {
+      value: "1500+",
+      label: "projects",
+      description:
+        "Delivering excellence in Web Development, Graphic Design, and Video Editing with a focus on creative precision.",
     },
-    { 
-      number: '100+', 
-      label: 'Brands',
-      desktopStyle: "rotate(8deg) translateY(2rem) translateX(1rem)",
+    {
+      value: "100+",
+      label: "brands",
+      description:
+        "Strategic partner for leading brands, enhancing their digital identity through innovative marketing and design.",
     },
   ];
 
   return (
-    <section className="bg-black w-full py-24 md:py-40 overflow-hidden font-[Poppins,sans-serif]">
-      <div className="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+    <div className="w-full bg-black py-24 px-4 border-y border-white/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-4">
         {statsData.map((stat, index) => (
-          <motion.div 
-            key={index} 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={isDesktop ? { scale: 1.1, rotate: 0, zIndex: 10, transition: { duration: 0.3 } } : { scale: 1.02 }}
-            className="relative bg-[#0A0A0A] w-full max-w-[400px] p-10 md:p-14 rounded-[48px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-500 cursor-pointer group flex flex-col items-center text-center"
-            style={{ transform: isDesktop ? stat.desktopStyle : undefined }}
-          >
-            {/* Card Accent */}
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-[#01C000]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-            <div className="relative z-10">
-              {/* Number with Rolling Animation */}
-              <div className="text-[50px] sm:text-[60px] md:text-[80px] font-black text-[#01C000] leading-none mb-4 tracking-tighter flex justify-center">
-                <RollingNumber number={stat.number} />
-              </div>
-              
-              {/* Label Text */}
-              <p className="text-white text-lg md:text-xl font-bold uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">
-                {stat.label}
-              </p>
-            </div>
-
-            {/* Background Glow Effect */}
-            <div className="absolute inset-0 bg-[#01C000]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[48px] pointer-events-none" />
-          </motion.div>
+          <StatItem
+            key={index}
+            value={stat.value}
+            label={stat.label}
+            description={stat.description}
+          />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
