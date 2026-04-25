@@ -1,45 +1,48 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi2";
-import heroBg from "../assets/Hero-bg.mp4";
-import mbHeroBg from "../assets/mbhero-bg.mp4";
-import ayyanImg from "../assets/testimonials/Ayyan.jpeg";
-import nadeemImg from "../assets/testimonials/Nadeem.png";
-import aliImg from "../assets/testimonials/ali.jpeg";
-import img1 from "../assets/testimonials/img1.jpeg";
+import heroVideo from "../assets/Hero-bg.mp4";
+import mobileHeroVideo from "../assets/mbhero-bg.mp4";
+import ayyan from "../assets/Testimonials/Ayyan.jpeg";
+import nadeem from "../assets/Testimonials/Nadeem.png";
+import ali from "../assets/Testimonials/ali.jpeg";
+import img1 from "../assets/Testimonials/img1.jpeg";
 
 const Hero: React.FC = () => {
   return (
-    <section className="font-[Poppins,sans-serif] w-full min-h-screen bg-black relative overflow-hidden">
-      {/* Desktop Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
-      >
-        <source src={heroBg} type="video/mp4" />
-      </video>
+    <section className="font-[Poppins,sans-serif] w-full md:min-h-screen bg-black pt-28 pb-20 relative overflow-hidden flex items-center justify-center">
+      {/* Background Videos */}
+      <div className="absolute inset-0 z-0">
+        {/* Desktop Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hidden md:block w-full h-full object-cover"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        
+        {/* Mobile Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="block md:hidden w-full h-full object-cover"
+        >
+          <source src={mobileHeroVideo} type="video/mp4" />
+        </video>
 
-      {/* Mobile Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 md:hidden"
-      >
-        <source src={mbHeroBg} type="video/mp4" />
-      </video>
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/80 md:bg-black/90 z-10" />
+      </div>
 
-      {/* Dark overlay to keep text readable */}
-      <div className="absolute inset-0 bg-black/80 md:bg-black/90 pointer-events-none z-[1]" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 min-h-screen flex flex-col items-center justify-center relative z-[2] text-center py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center relative z-20 text-center w-full h-full">
 
         {/* Top Pill */}
-        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm mb-8">
+        <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm my-10 md:mt-0">
           <div className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse flex-shrink-0" />
           <span className="text-xs sm:text-sm font-medium text-gray-700">
             Your <span className="font-semibold text-gray-900">All-in-One</span> Digital Agency
@@ -109,8 +112,8 @@ const Hero: React.FC = () => {
         </p>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-full sm:w-auto">
-          <button className="group flex items-center justify-center gap-3 bg-white text-black px-10 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg transition-colors shadow-lg active:scale-95 w-[75%] sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-fit sm:w-auto">
+          <button className="group flex items-center justify-center gap-3 bg-white text-black px-7 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg transition-colors shadow-lg active:scale-95 w-fit sm:w-auto">
             Get Started
             <HiArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
           </button>
@@ -120,22 +123,22 @@ const Hero: React.FC = () => {
 
           {/* Avatar Stack */}
           <div className="flex flex-col items-center gap-2">
-            <div className="flex -space-x-3">
+            <div className="flex -space-x-4 sm:-space-x-5">
               {[
-                { name: "Ayyan", src: ayyanImg },
-                { name: "Ali", src: aliImg },
-                { name: "Nadeem", src: nadeemImg },
-                { name: "Leader", src: img1 },
+                { name: "Ayyan", src: ayyan },
+                { name: "Nadeem", src: nadeem },
+                { name: "Ali", src: ali },
+                { name: "Member", src: img1 },
               ].map((avatar, idx) => (
                 <img
                   key={idx}
                   src={avatar.src}
                   alt={avatar.name}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-[5px] border-black object-cover shadow-inner ring-1 ring-gray-700"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-[3px] border-black object-cover shadow-xl ring-1 ring-white/10"
                 />
               ))}
             </div>
-            <span className="text-xs sm:text-sm font-medium text-gray-200">Trusted by Leaders</span>
+            <span className="text-xs sm:text-sm font-medium text-gray-200 mt-1">Trusted by Industry Leaders</span>
           </div>
         </div>
 
