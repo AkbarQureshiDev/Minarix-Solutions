@@ -89,7 +89,7 @@ const OurProcess: React.FC = () => {
             </motion.div>
 
             {index < steps.length - 1 && (
-              <div className="hidden xl:flex z-30 text-white/10 text-5xl absolute" style={{ left: `calc(33.33% * ${index + 1} - 20px)`, top: '45%' }}>
+              <div className="hidden xl:flex z-30 text-white text-5xl absolute" style={{ left: `calc(33.33% * ${index + 1} - 20px)`, top: '45%' }}>
                 <HiArrowLongRight className="animate-pulse" />
               </div>
             )}

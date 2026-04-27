@@ -60,14 +60,24 @@ const Faqs = () => {
                   <p className="text-gray-400 text-base">Book a free discovery call</p>
               </div>
 
-              <button className="w-full bg-[#01C000] text-black py-4 px-8 rounded-full flex items-center justify-between group/btn hover:bg-[#00a800] transition-all">
+              <a 
+                href="https://wa.me/923349313075?text=Hello%20Minarix!%20I%20would%20like%20to%20book%20a%20free%20discovery%20call." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full bg-[#01C000] text-black py-4 px-8 rounded-full flex items-center justify-between group/btn hover:bg-[#00a800] transition-all"
+              >
                 <span className="font-semibold text-[16px]">Book a Discovery Call</span>
                 <HiArrowRight className="text-xl transition-transform group-hover/btn:translate-x-1" />
-              </button>
+              </a>
 
               <p className="mt-6 text-center text-[14px] text-gray-500">
                 Or email us at{" "}
-                <span className="text-[#01C000] cursor-pointer hover:opacity-80 transition-opacity">hello@agency.com</span>
+                <a 
+                  href="mailto:minarixsolutions@gmail.com?subject=Website%20Inquiry&body=Hello%20Minarix%20Team,%0A%0AI%20would%20like%20to%20discuss%20a%20project%20with%20you."
+                  className="text-[#01C000] cursor-pointer hover:opacity-80 transition-opacity"
+                >
+                  minarixsolutions@gmail.com
+                </a>
               </p>
 
             </div>

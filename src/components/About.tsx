@@ -29,7 +29,7 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-[1300px]"
+          className="max-w-[340px] xs:max-w-[450px] sm:max-w-[1300px] mx-auto"
         >
           <h2 className="text-[40px] sm:text-[50px] md:text-[72px] font-medium leading-[1.1] text-white tracking-tighter mb-10">
             We help businesses grow their{" "}

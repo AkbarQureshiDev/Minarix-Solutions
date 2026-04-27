@@ -9,32 +9,46 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative w-full min-h-[80vh] bg-black flex flex-col items-center justify-center py-20 px-6 overflow-hidden text-white font-sans">
       
-      <div className="relative z-10 flex flex-col items-center text-center flex-grow justify-center">
-        {/* Heading Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+      <div className="relative z-10 flex flex-col items-center text-center flex-grow justify-center w-full max-w-5xl">
+        {/* Massive Catchy Heading */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center justify-center gap-4 mb-20 text-center font-poppins relative z-10"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8"
         >
-          <div className="flex items-center gap-4">
-            <div className="h-px w-8 bg-gradient-to-r from-transparent to-white" />
-            <span className="italic text-4xl text-white tracking-wide">Let's Talk</span>
-            <div className="h-px w-8 bg-gradient-to-l from-transparent to-white" />
-          </div>
-          <h2 className="text-white/40 text-xl lg:text-2xl tracking-widest font-light mt-2">Start your project with us</h2>
+          <h2 className="text-[14vw] sm:text-[120px] md:text-[180px] font-black leading-[0.8] tracking-tighter italic uppercase text-white">
+            Let's <br className="sm:hidden" />
+            <span className="text-[#01C000] drop-shadow-[0_0_30px_rgba(1,192,0,0.3)]">Connect</span>
+          </h2>
         </motion.div>
 
-        <p className="text-lg md:text-xl text-white max-w-md leading-relaxed mb-12">
-          Ready to grow your brand online? We're available for new projects and partnerships.
-        </p>
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-xl md:text-3xl text-white/80 font-medium tracking-tight mb-14"
+        >
+          Start your project with us
+        </motion.p>
 
-        <button className="group relative px-10 py-5 bg-[#01C000] text-black rounded-full flex items-center gap-3 transition-all hover:bg-[#00a800] font-semibold">
-          <span className="text-lg font-semibold">Book a Free Discovery Call</span>
-          <HiOutlineArrowRight className="text-xl transition-transform group-hover:translate-x-1" />
-        </button>
+        <motion.a 
+          href="https://wa.me/923349313075?text=Hello%20Minarix!%20I%20would%20like%20to%20book%20a%20free%20discovery%20call." 
+          target="_blank" 
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group relative px-12 py-6 bg-[#01C000] text-black rounded-full flex items-center gap-4 transition-all hover:bg-[#00e600] font-bold shadow-[0_20px_50px_rgba(1,192,0,0.3)]"
+        >
+          <span className="text-xl md:text-2xl">Book a Free Discovery Call</span>
+          <HiOutlineArrowRight className="text-2xl transition-transform group-hover:translate-x-2" />
+        </motion.a>
       </div>
+
+      {/* Background Catchy Elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80% ] h-[80%] bg-[#01C000]/10 blur-[150px] -z-10 rounded-full animate-pulse" />
 
       {/* 3. Bottom Row */}
       <div className="relative z-10 w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8 mt-20">

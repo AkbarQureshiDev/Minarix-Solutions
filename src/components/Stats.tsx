@@ -14,7 +14,7 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, description }) => (
     <p className="text-white text-xs md:text-sm uppercase tracking-[0.2em] font-bold mb-3">
       {label}
     </p>
-    <p className="text-gray-400 text-sm leading-relaxed max-w-[240px]">
+    <p className="text-gray-400 text-sm leading-relaxed max-w-[280px]">
       {description}
     </p>
   </div>

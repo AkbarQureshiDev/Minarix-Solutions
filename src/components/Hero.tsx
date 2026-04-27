@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi2";
+import { Link as ScrollLink } from "react-scroll";
 import heroVideo from "../assets/Hero-bg.mp4";
 import mobileHeroVideo from "../assets/mbhero-bg.mp4";
 import ayyan from "../assets/Testimonials/Ayyan.jpeg";
@@ -108,15 +109,20 @@ const Hero: React.FC = () => {
 
         {/* Subtext */}
         <p className="max-w-[480px] sm:max-w-[560px] text-base sm:text-lg text-white/80 leading-relaxed mb-10 sm:mb-14 px-2">
-          Design, develop, market, and grow — everything your brand needs, under one roof.
+          Design, develop, market, and grow everything your brand needs, under one roof.
         </p>
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 w-fit sm:w-auto">
-          <button className="group flex items-center justify-center gap-3 bg-white text-black px-7 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg transition-colors shadow-lg active:scale-95 w-fit sm:w-auto">
+          <ScrollLink 
+            to="services" 
+            smooth={true} 
+            duration={500} 
+            className="group flex items-center justify-center gap-3 bg-white text-black px-7 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg cursor-pointer transition-colors shadow-lg active:scale-95 w-fit sm:w-auto"
+          >
             Get Started
             <HiArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
-          </button>
+          </ScrollLink>
 
           {/* Divider */}
           <div className="w-px h-12 bg-gray-700 hidden sm:block" />

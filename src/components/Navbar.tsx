@@ -1,4 +1,6 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   IoMenuOutline, 
@@ -14,19 +16,22 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const menuItems = [
-    { name: "About", href: "#" },
-    { name: "Our Work", href: "#" },
-    { name: "Process", href: "#" },
-    { name: "Testimonials", href: "#" },
-    { name: "Our Team", href: "#" },
-    { name: "FAQs", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Home", to: "home" },
+    { name: "About", to: "about" },
+    { name: "Our Process", to: "process" },
+    { name: "Our Services", to: "services" },
+    { name: "Testimonials", to: "testimonials" },
+    { name: "Our Team", to: "team" },
+    { name: "Faqs", to: "faqs" },
+    { name: "Contact", to: "contact" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full px-6 py-4 z-50 bg-black">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <img src={logo} alt="logo" className="h-10 w-auto object-contain" />
+        <RouterLink to="/">
+          <img src={logo} alt="logo" className="h-15 w-auto object-contain cursor-pointer" />
+        </RouterLink>
 
         {/* Hamburger Toggle */}
         <motion.button
@@ -84,16 +89,19 @@ const Navbar: React.FC = () => {
               {/* Navigation Links */}
               <div className="flex flex-col space-y-5">
                 {menuItems.map((item, i) => (
-                  <motion.a
-                    whileHover={{ x: 8 }}
-                    key={item.name}
-                    href={item.href}
-                    className="text-2xl font-semibold text-white hover:text-gray-400 transition-colors tracking-tight"
-                    style={{ fontFamily: "'Poppins', sans-serif" }}
-                  >
-                    <span className="text-xs text-gray-500 mr-3 font-normal">0{i + 1}</span>
-                    {item.name}
-                  </motion.a>
+                  <motion.div whileHover={{ x: 8 }} key={item.name}>
+                    <ScrollLink
+                      to={item.to}
+                      smooth={true}
+                      duration={500}
+                      onClick={() => setIsOpen(false)}
+                      className="text-2xl font-semibold text-white hover:text-gray-400 transition-colors tracking-tight cursor-pointer block"
+                      style={{ fontFamily: "'Poppins', sans-serif" }}
+                    >
+                      <span className="text-xs text-gray-500 mr-3 font-normal">0{i + 1}</span>
+                      {item.name}
+                    </ScrollLink>
+                  </motion.div>
                 ))}
               </div>
 
