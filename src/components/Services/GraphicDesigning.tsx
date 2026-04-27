@@ -1,0 +1,212 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
+import { BsArrowRightCircleFill } from 'react-icons/bs';
+import Navbar from '../Navbar';
+
+// Load Banner images
+import banner1 from '../../assets/Designing/Banners/Banner1.png';
+import banner2 from '../../assets/Designing/Banners/Banner2.png';
+import banner3 from '../../assets/Designing/Banners/Banner3.png';
+import banner4 from '../../assets/Designing/Banners/Banner4.png';
+import banner5 from '../../assets/Designing/Banners/Banner5.png';
+import banner6 from '../../assets/Designing/Banners/Banner6.png';
+import banner7 from '../../assets/Designing/Banners/Banner7.png';
+
+// Load LogoFolio images
+import logo1 from '../../assets/Designing/LogoFolio/Logo1.png';
+import logo2 from '../../assets/Designing/LogoFolio/Logo2.png';
+import logo3 from '../../assets/Designing/LogoFolio/Logo3.png';
+import logo4 from '../../assets/Designing/LogoFolio/Logo4.png';
+import logo5 from '../../assets/Designing/LogoFolio/Logo5.png';
+
+// Load PostDesigns images
+import post1 from '../../assets/Designing/PostDesigns/Post1.jpeg';
+import post2 from '../../assets/Designing/PostDesigns/Post2.jpeg';
+import post3 from '../../assets/Designing/PostDesigns/Post3.jpeg';
+import post4 from '../../assets/Designing/PostDesigns/Post4.jpeg';
+import post5 from '../../assets/Designing/PostDesigns/Post5.jpeg';
+import post6 from '../../assets/Designing/PostDesigns/Post6.jpeg';
+
+// Load Thumbnails images
+import thumb1 from '../../assets/Designing/Thumbnails/Thumbnail1.jpeg';
+import thumb2 from '../../assets/Designing/Thumbnails/Thumbnail2.jpeg';
+import thumb3 from '../../assets/Designing/Thumbnails/Thumbnail3.jpeg';
+import thumb4 from '../../assets/Designing/Thumbnails/Thumbnail4.jpeg';
+import thumb5 from '../../assets/Designing/Thumbnails/Thumbnail5.jpeg';
+
+const banners = [banner1, banner2, banner3, banner4, banner5, banner6, banner7];
+const logos = [logo1, logo2, logo3, logo4, logo5];
+const posts = [post1, post2, post3, post4, post5, post6];
+const thumbnails = [thumb1, thumb2, thumb3, thumb4, thumb5];
+
+const ImageSlider = ({ title, images }: { title: string, images: string[] }) => {
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [itemsToShow, setItemsToShow] = useState(3);
+  const sliderImages = [...images, ...images, ...images]; // Duplicated for slider effect
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setItemsToShow(1);
+      else if (window.innerWidth < 1024) setItemsToShow(2);
+      else setItemsToShow(3);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleNextSlide = () => {
+    setSliderIndex((prev) => (prev + 1 >= sliderImages.length - itemsToShow + 1 ? 0 : prev + 1));
+  };
+  const handlePrevSlide = () => {
+    setSliderIndex((prev) => (prev === 0 ? sliderImages.length - itemsToShow : prev - 1));
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSliderIndex((prev) => (prev + 1 >= sliderImages.length - itemsToShow + 1 ? 0 : prev + 1));
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [itemsToShow, sliderImages.length]);
+
+  return (
+    <div className="w-full py-12">
+      {/* Header */}
+      <div className="w-full flex justify-center mb-10">
+        <div className="flex items-center gap-4">
+          <div className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-white" />
+          <span className="italic text-2xl md:text-3xl text-white tracking-wide">
+            {title}
+          </span>
+          <div className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-white" />
+        </div>
+      </div>
+
+      {/* Slider Container */}
+      <div className="relative w-full max-w-[1500px] mx-auto flex items-center justify-between group">
+        <button 
+          onClick={handlePrevSlide}
+          className="flex-shrink-0 z-20 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-[#01C000] transition-colors"
+        >
+          <HiArrowLeft className="text-2xl md:text-4xl" />
+        </button>
+
+        <div className="flex-1 overflow-hidden px-2 md:px-6">
+          <motion.div 
+            className="flex gap-4 md:gap-6"
+            animate={{ x: `calc(-${sliderIndex * (100 / itemsToShow)}%)` }}
+            transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+          >
+            {sliderImages.map((src, idx) => (
+              <div 
+                key={idx} 
+                className="flex-shrink-0 cursor-pointer overflow-hidden bg-white/5 border border-white/10 rounded-md shadow-lg"
+                style={{ width: `calc(${100 / itemsToShow}% - ${(itemsToShow - 1) * 24 / itemsToShow}px)` }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-auto flex items-center justify-center bg-black/20"
+                >
+                  <img 
+                    src={src} 
+                    alt={`${title} Work ${idx + 1}`} 
+                    className="w-full h-auto object-contain rounded-md max-h-[400px]"
+                  />
+                </motion.div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <button 
+          onClick={handleNextSlide}
+          className="flex-shrink-0 z-20 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center text-white hover:text-[#01C000] transition-colors"
+        >
+          <HiArrowRight className="text-2xl md:text-4xl" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const GraphicDesigning: React.FC = () => {
+  return (
+    <div className="bg-[#050505] min-h-screen text-white font-sans overflow-x-hidden relative">
+      <Navbar />
+
+      {/* High-End Hero Section */}
+      <section className="relative w-full min-h-[90vh] pt-48 pb-20 px-6 flex flex-col items-center justify-center text-center z-10">
+        
+        {/* Massive Dynamic Glow */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] md:w-[50%] h-[50vh] bg-[#01C000] blur-[180px] -z-10 rounded-full" 
+        />
+
+        {/* Floating Badge */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 flex items-center gap-3"
+        >
+          <span className="w-2 h-2 rounded-full bg-[#01C000] animate-pulse"></span>
+          <span className="text-sm font-medium tracking-wide uppercase text-white/80">Premium Visuals</span>
+        </motion.div>
+
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", type: "spring", stiffness: 100 }}
+          className="mb-8"
+        >
+          <h1 className="text-[12vw] sm:text-[80px] md:text-[110px] lg:text-[150px] font-black leading-[0.85] tracking-tighter italic uppercase text-white relative">
+            <span className="block relative z-10 hover:text-transparent hover:-webkit-text-stroke-[2px] hover:-webkit-text-stroke-white transition-all duration-500">Graphic</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#01C000] to-white bg-[length:200%_auto] animate-shimmer drop-shadow-[0_0_30px_rgba(1,192,0,0.5)]">
+              Designing
+            </span>
+          </h1>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="max-w-2xl text-lg md:text-2xl text-white/60 font-light leading-relaxed mb-12"
+        >
+          Crafting unforgettable brand identities. We create premium designs that capture attention, convey emotion, and elevate your brand aesthetic.
+        </motion.p>
+
+        {/* Hero Interactive Button */}
+        <motion.a
+          href="https://wa.me/923349313075?text=Hello%20Minarix!%20I%20would%20like%20to%20start%20a%20graphic%20designing%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group relative px-10 py-5 bg-white text-black font-bold uppercase tracking-wide rounded-full flex items-center gap-4 overflow-hidden border-2 border-transparent transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(1,192,0,0.6)] hover:border-[#01C000]"
+        >
+          <span className="relative z-10 text-lg group-hover:text-[#01C000] transition-colors duration-300">Start Your Project</span>
+          <BsArrowRightCircleFill className="text-2xl text-black group-hover:text-[#01C000] transition-colors duration-300 relative z-10" />
+        </motion.a>
+      </section>
+
+      {/* Sliders Section */}
+      <section className="relative w-full pb-24 px-4 sm:px-12 bg-[#050505] z-10 overflow-hidden">
+        <ImageSlider title="Banners" images={banners} />
+        <ImageSlider title="Logofolio" images={logos} />
+        <ImageSlider title="Post Designs" images={posts} />
+        <ImageSlider title="Thumbnails" images={thumbnails} />
+      </section>
+    </div>
+  );
+};
+
+export default GraphicDesigning;
