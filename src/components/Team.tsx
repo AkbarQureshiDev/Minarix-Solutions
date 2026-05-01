@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiChevronRight } from 'react-icons/hi2';
+
 import aminaImg from '../assets/Team/Amna.png';
 import haseebImg from '../assets/Team/Haseeb.png';
 import akbarImg from '../assets/Team/Akbar.png';
