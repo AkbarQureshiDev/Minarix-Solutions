@@ -6,11 +6,11 @@ import { Autoplay } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 
-import alemaar from '../assets/brands/Alemaar.png';
-import digitalEra from '../assets/brands/DigitalEra.png';
-import scair from '../assets/brands/Scair.png';
-import signAge from '../assets/brands/SignAge.png';
-import zarb from '../assets/brands/Zarb.png';
+import alemaar from '../assets/Brands/Alemaar.png';
+import digitalEra from '../assets/Brands/DigitalEra.png';
+import scair from '../assets/Brands/Scair.png';
+import signAge from '../assets/Brands/SignAge.png';
+import zarb from '../assets/Brands/Zarb.png';
 
 const Brands: React.FC = () => {
   const brandLogos = [
