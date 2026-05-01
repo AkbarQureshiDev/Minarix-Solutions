@@ -102,7 +102,7 @@ const WebDevelopment: React.FC = () => {
 
         {/* Hero Interactive Button */}
         <motion.a
-          href="https://wa.me/923349313075?text=Hello%20Minarix!%20I%20would%20like%20to%20start%20a%20web%20development%20project."
+          href="https://wa.me/923134409152?text=Hello%20Minarix!%20I%20would%20like%20to%20start%20a%20web%20development%20project."
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
