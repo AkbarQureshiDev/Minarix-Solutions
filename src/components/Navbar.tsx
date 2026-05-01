@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  IoMenuOutline, 
-  IoCloseOutline, 
-  IoLogoTwitter, 
-  IoLogoLinkedin, 
-  IoLogoInstagram 
-} from "react-icons/io5";
+import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 import logo from '../assets/logo.png'
 
@@ -107,10 +102,16 @@ const Navbar: React.FC = () => {
 
               {/* Social Media Row */}
               <div className="flex space-x-4 mt-16">
-                {[IoLogoTwitter, IoLogoLinkedin, IoLogoInstagram].map((Icon, idx) => (
+                {[
+                  { Icon: FaFacebookF, link: "https://www.facebook.com/profile.php?id=61576517499900" },
+                  { Icon: FaInstagram, link: "https://www.instagram.com/minarixsolutions/" },
+                  { Icon: FaWhatsapp, link: "https://wa.me/923134409152" },
+                ].map(({ Icon, link }, idx) => (
                   <a
                     key={idx}
-                    href="#"
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-4 border border-white/20 rounded-full text-white hover:border-white hover:text-white transition-all"
                   >
                     <Icon className="w-6 h-6" />
