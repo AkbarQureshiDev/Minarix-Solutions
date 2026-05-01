@@ -51,7 +51,7 @@ const Team: React.FC = () => {
   };
 
   return (
-    <div className="py-24 px-10 bg-[#050505] overflow-hidden relative" id="team">
+    <div className="py-24 px-10 bg-black overflow-hidden relative" id="team">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#01C000]/5 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 blur-[120px] rounded-full" />

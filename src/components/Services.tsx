@@ -253,7 +253,7 @@ const Services: React.FC = () => {
                     <Link to={item.link}>
                       <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-4 border-[#1FB51E]/20 bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a]">
                         <img src={item.img} alt={item.title} className="w-full h-full object-contain p-8" />
-                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                           <ArrowRight className="w-10 h-10 text-white" />
                         </div>
                       </div>
