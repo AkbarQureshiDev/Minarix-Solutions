@@ -152,11 +152,11 @@ const Team: React.FC = () => {
           })}
         </motion.div>
       ) : (
-        <div className="relative max-w-[400px] mx-auto flex flex-col items-center">
+        <div className="relative w-full mx-auto flex flex-col items-center">
           <div className="w-full overflow-hidden px-4 py-10">
             <motion.div 
-              className="flex gap-4"
-              animate={{ x: `calc(-${currentIndex * 100}% - ${currentIndex * 16}px)` }}
+              className="flex gap-6"
+              animate={{ x: `calc(-${currentIndex * 100}% - ${currentIndex * 24}px)` }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {teamMembers.map((member, index) => {
@@ -167,18 +167,18 @@ const Team: React.FC = () => {
                   <motion.div
                     key={index}
                     animate={{ 
-                      scale: isActive ? 1 : 0.85,
-                      opacity: isActive ? 1 : 0.5
+                      scale: isActive ? 1 : 0.82,
+                      opacity: isActive ? 1 : 0.45
                     }}
                     className="flex-shrink-0 w-full relative flex flex-col items-center"
                   >
                     {/* Main Pill Shape */}
                     <div
-                      className={`relative w-[270px] h-[390px] rounded-[135px] flex flex-col items-center pt-12 px-8 text-center
+                      className={`relative w-[340px] h-[500px] rounded-[170px] flex flex-col items-center pt-16 px-10 text-center
                         transition-all duration-700 overflow-hidden
                         ${isGreen
-                          ? 'bg-[#01C000]'
-                          : 'bg-white'
+                          ? 'bg-[#01C000] shadow-[0_20px_60px_-10px_rgba(1,192,0,0.5)]'
+                          : 'bg-white shadow-[0_20px_60px_-10px_rgba(255,255,255,0.2)]'
                         }`}
                     >
                       <div className="relative z-10 w-full font-poppins">
@@ -190,7 +190,7 @@ const Team: React.FC = () => {
                         </p>
                       </div>
 
-                      <div className="absolute bottom-0 w-[270px] h-[270px]">
+                      <div className="absolute bottom-0 w-[340px] h-[340px]">
                         <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-black/5 relative shadow-inner">
                           <img
                             src={member.image}
