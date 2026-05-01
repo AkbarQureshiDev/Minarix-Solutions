@@ -61,25 +61,25 @@ const OurProcess: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={isDesktop ? { scale: 1.1, rotate: 0, zIndex: 100, y: 0 } : { scale: 1.02 }}
               viewport={{ once: true }}
-              className="relative bg-[#0A0A0A] w-full max-w-[420px] md:w-[420px] p-12 rounded-[48px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-500 cursor-pointer overflow-hidden group mb-10 md:mb-0"
+              className="relative bg-[#0A0A0A] w-full max-w-[420px] md:w-[420px] p-8 md:p-12 rounded-[32px] md:rounded-[48px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] transition-all duration-500 cursor-pointer overflow-hidden group mb-6 md:mb-0"
               style={{ transform: isDesktop ? step.desktopStyle : undefined }}
             >
               {/* Card Accent */}
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-[#01C000]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              <span className="text-[90px] font-black text-white/5 group-hover:text-[#01C000]/20 leading-none tracking-tighter transition-colors duration-500 absolute top-4 right-8">
+              <span className="text-[70px] md:text-[90px] font-black text-white/5 group-hover:text-[#01C000]/20 leading-none tracking-tighter transition-colors duration-500 absolute top-4 right-6 md:right-8">
                 {step.id}
               </span>
 
-              <div className="relative z-10 pt-10">
-                <div className="w-12 h-12 bg-[#01C000] rounded-2xl flex items-center justify-center mb-10 shadow-[0_0_20px_rgba(1,192,0,0.3)]">
-                  <span className="text-black font-bold text-lg">{index + 1}</span>
+              <div className="relative z-10 pt-4 md:pt-10">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-[#01C000] rounded-xl md:rounded-2xl flex items-center justify-center mb-6 md:mb-10 shadow-[0_0_20px_rgba(1,192,0,0.3)]">
+                  <span className="text-black font-bold text-base md:text-lg">{index + 1}</span>
                 </div>
                 
-                <h3 className="text-[28px] font-bold text-white mb-5 tracking-tight group-hover:text-[#01C000] transition-colors">
+                <h3 className="text-[22px] md:text-[28px] font-bold text-white mb-2 md:mb-5 tracking-tight group-hover:text-[#01C000] transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-gray-400 text-[16px] leading-[1.8] font-medium">
+                <p className="text-gray-400 text-[14px] md:text-[16px] leading-relaxed md:leading-[1.8] font-medium">
                   {step.description}
                 </p>
               </div>

@@ -31,9 +31,9 @@ const About: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="max-w-[340px] xs:max-w-[450px] sm:max-w-[1300px] mx-auto"
         >
-          <h2 className="text-[40px] sm:text-[50px] md:text-[72px] font-medium leading-[1.1] text-white tracking-tighter mb-10">
+          <h2 className="text-[28px] sm:text-[40px] md:text-[72px] font-medium leading-[1.2] sm:leading-[1.1] text-white tracking-tighter mb-6 sm:mb-10">
             We help businesses grow their{" "}
-            <span className="bg-gradient-to-r from-[#01C000] to-[#01a000] bg-clip-text text-transparent italic">digital presence</span>{" "}
+            <span className="bg-gradient-to-r from-[#01C000] to-[#01a000] bg-clip-text text-transparent italic pr-2 pb-2 box-decoration-clone">digital presence</span>{" "}
             through creative strategy and execution, transforming bold ideas into measurable results.
           </h2>
           
