@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-import GraphicDesigningImg from '../assets/services/GraphicDesigning.png';
-import WebDevelopmentImg from '../assets/services/WebDevelopment.png';
-import DigitalMarketingImg from '../assets/services/DigitalMarketing.png';
-import SmBrandingImg from '../assets/services/SmBranding.png';
-import VideoEditingImg from '../assets/services/VideoEditing.png';
+import GraphicDesigningImg from '../assets/Services/GraphicDesigning.png';
+import WebDevelopmentImg from '../assets/Services/WebDevelopment.png';
+import DigitalMarketingImg from '../assets/Services/DigitalMarketing.png';
+import SmBrandingImg from '../assets/Services/SmBranding.png';
+import VideoEditingImg from '../assets/Services/VideoEditing.png';
 
 interface Category {
   title: string;
