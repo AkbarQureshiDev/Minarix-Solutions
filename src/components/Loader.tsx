@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
 
 const Loader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
+  const [, setProgress] = useState(0);
 
   useEffect(() => {
     // Simulate loading progress

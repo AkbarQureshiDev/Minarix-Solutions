@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiPlus } from 'react-icons/hi';
 import { HiArrowRight } from 'react-icons/hi2';

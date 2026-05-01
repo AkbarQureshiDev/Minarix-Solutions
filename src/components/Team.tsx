@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { HiChevronRight } from 'react-icons/hi2';
 import aminaImg from '../assets/Team/Amna.png';
 import haseebImg from '../assets/Team/Haseeb.png';
 import akbarImg from '../assets/Team/Akbar.png';
@@ -25,7 +25,6 @@ const teamMembers: TeamMember[] = [
 
 const Team: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -43,38 +42,12 @@ const Team: React.FC = () => {
   }, [currentIndex]);
 
   const handleNext = () => {
-    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % teamMembers.length);
-  };
-
-  const handlePrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
   };
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
-  };
-
-  const cardVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
-      opacity: 0,
-      scale: 0.9,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? 100 : -100,
-      opacity: 0,
-      scale: 0.9,
-      transition: { duration: 0.4 }
-    }),
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { HiArrowLongRight, HiArrowLongDown } from "react-icons/hi2";
+import { HiArrowLongRight } from "react-icons/hi2";
 
 const steps = [
   {
