@@ -11,7 +11,7 @@ import img1 from "../assets/Testimonials/img1.jpeg";
 
 const Hero: React.FC = () => {
   return (
-    <section className="font-[Poppins,sans-serif] w-full md:min-h-screen bg-black pt-28 pb-20 relative overflow-hidden flex items-center justify-center">
+    <section className="font-[Poppins,sans-serif] w-full min-h-[85vh] md:min-h-screen bg-black pt-28 pb-20 relative overflow-hidden flex items-center justify-center">
       {/* Background Videos */}
       <div className="absolute inset-0 z-0">
         {/* Desktop Video */}
