@@ -61,7 +61,7 @@ const Faqs = () => {
               </div>
 
               <a 
-                href="https://wa.me/923349313075?text=Hello%20Minarix!%20I%20would%20like%20to%20book%20a%20free%20discovery%20call." 
+                href="https://wa.me/923134409152?text=Hello%20Minarix!%20I%20would%20like%20to%20book%20a%20free%20discovery%20call." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full bg-[#01C000] text-black py-4 px-8 rounded-full flex items-center justify-between group/btn hover:bg-[#00a800] transition-all"
