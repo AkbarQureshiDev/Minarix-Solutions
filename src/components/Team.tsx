@@ -178,23 +178,23 @@ const Team: React.FC = () => {
                   >
                     {/* Main Pill Shape */}
                     <div
-                      className={`relative w-[240px] h-[340px] rounded-[120px] flex flex-col items-center pt-10 px-6 text-center
-                        transition-all duration-700 overflow-hidden shadow-2xl
+                      className={`relative w-[260px] h-[380px] rounded-[130px] flex flex-col items-center pt-12 px-8 text-center
+                        transition-all duration-700 overflow-hidden
                         ${isGreen
                           ? 'bg-gradient-to-b from-[#01C000] to-[#018000]'
                           : 'bg-white'
                         }`}
                     >
                       <div className="relative z-10 w-full font-poppins">
-                        <h3 className={`font-bold text-xl leading-tight mb-2 tracking-tight ${isGreen ? 'text-white' : 'text-black'}`}>
+                        <h3 className={`font-bold text-2xl leading-tight mb-2 tracking-tight ${isGreen ? 'text-white' : 'text-black'}`}>
                           {member.name}
                         </h3>
-                        <p className={`text-[11px] font-medium ${isGreen ? 'text-white/75' : 'text-black/55'}`}>
+                        <p className={`text-[12px] font-medium ${isGreen ? 'text-white/75' : 'text-black/55'}`}>
                           {member.role}
                         </p>
                       </div>
 
-                      <div className="absolute bottom-0 w-[240px] h-[240px]">
+                      <div className="absolute bottom-0 w-[260px] h-[260px]">
                         <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-black/5 relative shadow-inner">
                           <img
                             src={member.image}
@@ -204,11 +204,6 @@ const Team: React.FC = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Outer Glow for active slide */}
-                    <div className={`absolute -inset-4 rounded-[150px] opacity-20 blur-2xl -z-10 transition-opacity duration-700
-                      ${isGreen && isActive ? 'bg-[#01C000]' : !isGreen && isActive ? 'bg-white' : 'opacity-0'}`} 
-                    />
                   </motion.div>
                 );
               })}
