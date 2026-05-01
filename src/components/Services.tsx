@@ -3,9 +3,16 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+import GraphicDesigningImg from '../assets/services/GraphicDesigning.png';
+import WebDevelopmentImg from '../assets/services/WebDevelopment.png';
+import DigitalMarketingImg from '../assets/services/DigitalMarketing.png';
+import SmBrandingImg from '../assets/services/SmBranding.png';
+import VideoEditingImg from '../assets/services/VideoEditing.png';
+
 interface Category {
   title: string;
   description: string;
+  img: string;
   link: string;
 }
 
@@ -13,26 +20,31 @@ const categories: Category[] = [
   { 
     title: 'Graphic Designing', 
     description: 'Premium visual designs that capture your brand\'s essence and engage your audience.',
+    img: GraphicDesigningImg,
     link: '/services/graphic-designing'
   },
   { 
     title: 'Web Development', 
     description: 'Custom, high-performance websites built with the latest technologies.',
+    img: WebDevelopmentImg,
     link: '/services/web-development'
   },
   { 
     title: 'Digital Marketing', 
     description: 'Strategic advertising campaigns across Google, Meta, and more to scale your business.',
+    img: DigitalMarketingImg,
     link: '/services/digital-marketing'
   },
   { 
     title: 'Social Media Branding', 
     description: 'Complete social media identity and engagement strategies for modern brands.',
+    img: SmBrandingImg,
     link: '/services/sm-branding'
   },
   { 
     title: 'Video Editing', 
     description: 'Professional video production and editing to tell your story effectively.',
+    img: VideoEditingImg,
     link: '/services/video-editing'
   },
 ];
@@ -156,14 +168,20 @@ const Services: React.FC = () => {
               {/* Image Container with Link */}
               <Link to={item.link}>
                 <motion.div 
-                  className="w-[260px] h-[260px] rounded-full shadow-2xl shadow-[#1FB51E]/40 overflow-hidden transition-all duration-500 cursor-pointer relative"
+                  className="w-[260px] h-[260px] rounded-full shadow-2xl shadow-[#1FB51E]/40 overflow-hidden transition-all duration-500 cursor-pointer relative bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] border-2 border-[#1FB51E]/20"
                   variants={imageVariants}
                   whileHover={{ 
                     scale: 1.05,
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <div className="w-full h-full bg-black/30" />
+                  <motion.img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-contain p-8"
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  />
                   {/* Arrow Icon Overlay */}
                   <motion.div 
                     className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -233,8 +251,8 @@ const Services: React.FC = () => {
                     className="flex-shrink-0 w-full flex flex-col items-center pb-8"
                   >
                     <Link to={item.link}>
-                      <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-4 border-[#1FB51E]/20">
-                        <div className="w-full h-full bg-black/30" />
+                      <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-4 border-[#1FB51E]/20 bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a]">
+                        <img src={item.img} alt={item.title} className="w-full h-full object-contain p-8" />
                         <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
                           <ArrowRight className="w-10 h-10 text-white" />
                         </div>
