@@ -52,10 +52,6 @@ const Team: React.FC = () => {
 
   return (
     <div className="py-24 px-10 bg-black overflow-hidden relative" id="team">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#01C000]/5 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 blur-[120px] rounded-full" />
-
       {/* Heading Section */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
@@ -109,7 +105,7 @@ const Team: React.FC = () => {
                   className={`relative w-[280px] h-[400px] rounded-[140px] flex flex-col items-center pt-14 px-8 text-center
                     transition-all duration-700 overflow-hidden
                     ${isGreen
-                      ? 'bg-gradient-to-b from-[#01C000] to-[#018000] shadow-[0_20px_60px_-15px_rgba(1,192,0,0.4)]'
+                      ? 'bg-[#01C000] shadow-[0_20px_60px_-15px_rgba(1,192,0,0.4)]'
                       : 'bg-white shadow-[0_20px_60px_-15px_rgba(255,255,255,0.1)]'
                     }`}
                 >
@@ -178,10 +174,10 @@ const Team: React.FC = () => {
                   >
                     {/* Main Pill Shape */}
                     <div
-                      className={`relative w-[260px] h-[380px] rounded-[130px] flex flex-col items-center pt-12 px-8 text-center
+                      className={`relative w-[270px] h-[390px] rounded-[135px] flex flex-col items-center pt-12 px-8 text-center
                         transition-all duration-700 overflow-hidden
                         ${isGreen
-                          ? 'bg-gradient-to-b from-[#01C000] to-[#018000]'
+                          ? 'bg-[#01C000]'
                           : 'bg-white'
                         }`}
                     >
@@ -189,12 +185,12 @@ const Team: React.FC = () => {
                         <h3 className={`font-bold text-2xl leading-tight mb-2 tracking-tight ${isGreen ? 'text-white' : 'text-black'}`}>
                           {member.name}
                         </h3>
-                        <p className={`text-[12px] font-medium ${isGreen ? 'text-white/75' : 'text-black/55'}`}>
+                        <p className={`text-[13px] font-medium ${isGreen ? 'text-white/75' : 'text-black/55'}`}>
                           {member.role}
                         </p>
                       </div>
 
-                      <div className="absolute bottom-0 w-[260px] h-[260px]">
+                      <div className="absolute bottom-0 w-[270px] h-[270px]">
                         <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-black/5 relative shadow-inner">
                           <img
                             src={member.image}
