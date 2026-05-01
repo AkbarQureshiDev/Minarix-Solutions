@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HiOutlineArrowRight } from 'react-icons/hi';
-import { FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { MdOutlineAlternateEmail } from 'react-icons/md';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
@@ -35,7 +33,7 @@ const Footer: React.FC = () => {
         </motion.p>
 
         <motion.a 
-          href="https://wa.me/923349313075?text=Hello%20Minarix!%20I%20would%20like%20to%20book%20a%20free%20discovery%20call." 
+          href="https://wa.me/923134409152?text=Hello%20Minarix!%20I%20would%20like%20to%20book%20a%20free%20discovery%20call." 
           target="_blank" 
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
@@ -58,10 +56,9 @@ const Footer: React.FC = () => {
 
         <div className="flex items-center gap-4">
           {[
-            { icon: <MdOutlineAlternateEmail />, link: "#" },
-            { icon: <FaXTwitter />, link: "#" },
-            { icon: <FaLinkedinIn />, link: "#" },
-            { icon: <FaInstagram />, link: "#" }
+            { icon: <FaFacebookF />, link: "https://www.facebook.com/profile.php?id=61576517499900" },
+            { icon: <FaInstagram />, link: "https://www.instagram.com/minarixsolutions/" },
+            { icon: <FaWhatsapp />, link: "https://wa.me/923134409152" }
           ].map((item, idx) => (
             <a
               key={idx}
