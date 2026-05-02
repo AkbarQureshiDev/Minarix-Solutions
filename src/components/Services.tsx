@@ -125,7 +125,8 @@ const Services: React.FC = () => {
   };
   
   return (
-    <div className="max-w-[1400px] mx-auto !px-4 !py-16 md:!pb-45">
+    <div className="w-full bg-black md:bg-transparent">
+      <div className="max-w-[1400px] mx-auto !px-4 !py-16 md:!pb-45">
       {/* Heading Section */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
@@ -135,11 +136,9 @@ const Services: React.FC = () => {
         className="flex flex-col items-center justify-center gap-4 mb-24 text-center font-poppins relative z-10"
       >
         <div className="flex items-center gap-4">
-          <div className="h-px w-8 bg-gradient-to-r from-transparent to-white" />
           <span className="italic text-2xl md:text-4xl text-white tracking-wide">
             Our Professional Services
           </span>
-          <div className="h-px w-8 bg-gradient-to-l from-transparent to-white" />
         </div>
         <h2 className="text-white/40 text-xl lg:text-2xl tracking-widest font-light mt-2">
           Tailored solutions to elevate your brand
@@ -168,7 +167,7 @@ const Services: React.FC = () => {
               {/* Image Container with Link */}
               <Link to={item.link}>
                 <motion.div 
-                  className="w-[260px] h-[260px] rounded-full shadow-2xl shadow-[#1FB51E]/40 overflow-hidden transition-all duration-500 cursor-pointer relative bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] border-2 border-[#1FB51E]/20"
+                  className="w-[260px] h-[260px] rounded-full shadow-2xl shadow-[#1FB51E]/40 overflow-hidden transition-all duration-500 cursor-pointer relative border-2 border-[#1FB51E]/20"
                   variants={imageVariants}
                   whileHover={{ 
                     scale: 1.05,
@@ -251,22 +250,22 @@ const Services: React.FC = () => {
                     className="flex-shrink-0 w-full flex flex-col items-center pb-8"
                   >
                     <Link to={item.link}>
-                      <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-4 border-[#1FB51E]/20 bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a]">
+                      <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-2 border-[#1FB51E]/20">
                         <img src={item.img} alt={item.title} className="w-full h-full object-contain p-8" />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                           <ArrowRight className="w-10 h-10 text-white" />
                         </div>
                       </div>
                     </Link>
-                    <div className="mt-8 text-center px-4">
-                      <h3 className="text-[#1FB51E] text-2xl font-bold mb-3 drop-shadow-[0_0_8px_rgba(31,181,30,0.4)]">
+                    <div className="!mt-8 w-[260px]">
+                      <h3 className="font-logo text-xl font-bold text-[#1FB51E] text-center !p-1 leading-tight drop-shadow-[0_0_8px_rgba(31,181,30,0.4)]">
                         {item.title}
                       </h3>
-                      <p className="text-white/80 text-sm italic leading-relaxed">
+                      <p className="font-logo text-sm text-white text-center !mt-2 !px-2 italic">
                         {item.description}
                       </p>
-                      <Link to={item.link} className="flex items-center justify-center mt-6 text-[#1FB51E]">
-                        <span className="text-sm font-bold mr-2">View Details</span>
+                      <Link to={item.link} className="flex items-center justify-center !mt-4 text-[#1FB51E]">
+                        <span className="font-logo text-sm font-semibold mr-2">View Details</span>
                         <ArrowRight className="w-5 h-5" />
                       </Link>
                     </div>
@@ -288,6 +287,7 @@ const Services: React.FC = () => {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };
