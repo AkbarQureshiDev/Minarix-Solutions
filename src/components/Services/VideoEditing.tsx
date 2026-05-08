@@ -6,8 +6,12 @@ import Navbar from '../Navbar';
 
 // Load videos for the carousel
 import video1 from '../../assets/Video1.mp4';
+import video2 from '../../assets/Video2.mp4';
+import video3 from '../../assets/Video3.mp4';
+import video4 from '../../assets/Video4.mp4';
+import video5 from '../../assets/Video5.mp4';
 
-const sliderItems: (string | null)[] = [video1, null, null, null, null];
+const sliderItems = [video2, video3, video4, video5, video1];
 const sliderContent = [...sliderItems, ...sliderItems, ...sliderItems];
 
 const VideoEditing: React.FC = () => {
@@ -137,9 +141,12 @@ const VideoEditing: React.FC = () => {
               {sliderContent.map((src, idx) => (
                 <div 
                   key={idx} 
-                  className="flex-shrink-0 cursor-pointer overflow-hidden bg-white/5 border border-white/10 rounded-md shadow-lg"
-                  style={{ width: `calc(${100 / itemsToShow}% - ${(itemsToShow - 1) * 24 / itemsToShow}px)`, aspectRatio: '16/9' }}
+                  className="flex-shrink-0 cursor-pointer overflow-hidden bg-white/5 border border-white/10 rounded-[2rem] shadow-2xl transition-all duration-700 hover:border-[#01C000]/50 hover:shadow-[0_0_50px_rgba(1,192,0,0.2)] group/card"
+                  style={{ 
+                    width: `calc(${100 / itemsToShow}% - ${(itemsToShow - 1) * 24 / itemsToShow}px)`,
+                  }}
                 >
+                  <div className="relative w-full h-[450px] md:h-[650px]">
                   {src ? (
                     <motion.div
                       whileHover={{ scale: 1.02 }}
@@ -148,7 +155,7 @@ const VideoEditing: React.FC = () => {
                     >
                       <video 
                         src={src} 
-                        className="w-full h-full object-cover rounded-md"
+                        className="w-full h-full object-cover rounded-[2rem]"
                         muted
                         loop
                         autoPlay
@@ -156,10 +163,11 @@ const VideoEditing: React.FC = () => {
                       />
                     </motion.div>
                   ) : (
-                    <div className="w-full h-full bg-white/5 flex items-center justify-center rounded-md">
+                    <div className="w-full h-full bg-white/5 flex items-center justify-center rounded-[2rem]">
                       <span className="text-white/20 text-sm italic">Coming Soon</span>
                     </div>
                   )}
+                  </div>
                 </div>
               ))}
             </motion.div>
