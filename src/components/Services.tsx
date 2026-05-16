@@ -158,6 +158,7 @@ const Services: React.FC = () => {
               key={index} 
               className="group flex flex-col items-center flex-shrink-0 w-full md:w-auto"
               variants={cardVariants}
+              style={{ perspective: 1000 }}
               whileHover={{ 
                 y: -10,
                 transition: { duration: 0.3, ease: "easeOut" }
@@ -171,6 +172,8 @@ const Services: React.FC = () => {
                   variants={imageVariants}
                   whileHover={{ 
                     scale: 1.05,
+                    rotateX: 15,
+                    rotateY: -15,
                     transition: { duration: 0.3 }
                   }}
                 >
@@ -250,7 +253,9 @@ const Services: React.FC = () => {
                     className="flex-shrink-0 w-full flex flex-col items-center pb-8"
                   >
                     <Link to={item.link}>
-                      <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-2 border-[#1FB51E]/20">
+                      <div className="w-[260px] h-[260px] rounded-full shadow-[#1FB51E]/40 shadow-2xl overflow-hidden relative border-2 border-[#1FB51E]/20"
+                           style={{ transform: isActive ? 'perspective(1000px) rotateX(10deg) rotateY(-10deg)' : 'none', transition: 'transform 0.5s ease-out' }}
+                      >
                         <img src={item.img} alt={item.title} className="w-full h-full object-contain p-8" />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                           <ArrowRight className="w-10 h-10 text-white" />
