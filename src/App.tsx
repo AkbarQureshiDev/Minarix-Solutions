@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import Loader from "./components/Loader";
+import { ReactLenis } from 'lenis/react';
+import gsap from "gsap";
 
 // Service Components
 import DigitalMarketing from "./components/Services/DigitalMarketing";
@@ -13,29 +15,32 @@ import WebDevelopment from "./components/Services/WebDevelopment";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     if (isLoading) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
     }
   }, [isLoading]);
 
   return (
-    <div>
-      <AnimatePresence>
-        {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
-      </AnimatePresence>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
-        <Route path="/services/graphic-designing" element={<GraphicDesigning />} />
-        <Route path="/services/sm-branding" element={<SmBranding />} />
-        <Route path="/services/video-editing" element={<VideoEditing />} />
-        <Route path="/services/web-development" element={<WebDevelopment />} />
-      </Routes>
-    </div>
+    <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
+      <div>
+        <AnimatePresence mode="wait">
+          {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+        </AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
+          <Route path="/services/graphic-designing" element={<GraphicDesigning />} />
+          <Route path="/services/sm-branding" element={<SmBranding />} />
+          <Route path="/services/video-editing" element={<VideoEditing />} />
+          <Route path="/services/web-development" element={<WebDevelopment />} />
+        </Routes>
+      </div>
+    </ReactLenis>
   );
 };
 
