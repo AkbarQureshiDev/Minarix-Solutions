@@ -8,6 +8,7 @@ import ayyan from "../assets/Testimonials/Ayyan.jpeg";
 import nadeem from "../assets/Testimonials/Nadeem.png";
 import ali from "../assets/Testimonials/ali.jpeg";
 import img1 from "../assets/Testimonials/img1.jpeg";
+import { ThreeBackground } from "./ThreeBackground";
 
 const Hero: React.FC = () => {
   return (
@@ -38,6 +39,9 @@ const Hero: React.FC = () => {
 
         {/* Overlays */}
         <div className="absolute inset-0 bg-black/80 md:bg-black/90 z-10" />
+        
+        {/* 3D Particles Layer */}
+        <ThreeBackground />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center relative z-20 text-center w-full h-full">
@@ -51,15 +55,15 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Main Heading */}
-        <div className="relative mb-8 sm:mb-10 flex flex-col items-center w-full px-5 sm:px-0">
+        <div className="relative mb-8 sm:mb-10 flex flex-col items-center w-full px-2 sm:px-0 max-w-full">
 
           {/* Row 1: We Build [badge] Brands */}
-          <div className="flex flex-nowrap items-center justify-center gap-x-2 sm:gap-x-4 md:gap-x-6 w-full">
-            <h1 className="text-[9vw] xs:text-[38px] sm:text-[70px] md:text-[90px] leading-[0.9] font-medium text-white tracking-[-0.03em] whitespace-nowrap passero-one-regular">
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-x-2 sm:gap-x-4 md:gap-x-6 w-full max-w-full">
+            <h1 className="text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[90px] leading-[0.9] font-medium text-white tracking-[-0.03em] whitespace-nowrap passero-one-regular">
               We
             </h1>
 
-            <h1 className="text-[9vw] xs:text-[38px] sm:text-[70px] md:text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent whitespace-nowrap passero-one-regular">
+            <h1 className="text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent whitespace-nowrap passero-one-regular">
               Build
             </h1>
 
@@ -68,8 +72,8 @@ const Hero: React.FC = () => {
               initial={{ y: 0 }}
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="bg-white p-1.5 sm:p-2.5 md:p-3 rounded-[10px] sm:rounded-[20px] md:rounded-[28px] shadow-xl border border-gray-100 flex items-center justify-center flex-shrink-0"
-              style={{ width: "clamp(44px, 11vw, 160px)", height: "clamp(30px, 7.5vw, 100px)" }}
+              className="bg-white p-1 sm:p-2.5 md:p-3 rounded-[10px] sm:rounded-[20px] md:rounded-[28px] shadow-xl border border-gray-100 flex items-center justify-center flex-shrink-0"
+              style={{ width: "clamp(50px, 12vw, 160px)", height: "clamp(35px, 8vw, 100px)" }}
             >
               <div className="grid grid-cols-2 gap-[3px] sm:gap-1.5 w-full h-full">
                 <div className="bg-[#E4B653] rounded-[3px] sm:rounded-md md:rounded-lg"></div>
@@ -79,14 +83,14 @@ const Hero: React.FC = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-[9vw] xs:text-[38px] sm:text-[70px] md:text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent whitespace-nowrap passero-one-regular">
+            <h1 className="text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent whitespace-nowrap passero-one-regular">
               Brands
             </h1>
           </div>
 
           {/* Row 2: That [badge] Online */}
-          <div className="flex flex-nowrap items-center justify-center gap-x-2 sm:gap-x-4 md:gap-x-6 mt-2 sm:mt-3 w-full">
-            <h1 className="text-[9vw] xs:text-[38px] sm:text-[70px] md:text-[90px] leading-[0.9] font-medium text-gray-200 tracking-[-0.03em] whitespace-nowrap passero-one-regular">
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-x-2 sm:gap-x-4 md:gap-x-6 mt-2 sm:mt-3 w-full max-w-full">
+            <h1 className="text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[90px] leading-[0.9] font-medium text-gray-200 tracking-[-0.03em] whitespace-nowrap passero-one-regular">
               That
             </h1>
 
@@ -96,12 +100,12 @@ const Hero: React.FC = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
               className="bg-[#1C1C1C] rounded-[10px] sm:rounded-[20px] md:rounded-[28px] shadow-xl flex items-center justify-center flex-shrink-0"
-              style={{ width: "clamp(44px, 11vw, 160px)", height: "clamp(30px, 7.5vw, 100px)" }}
+              style={{ width: "clamp(60px, 14vw, 160px)", height: "clamp(40px, 9vw, 100px)" }}
             >
-              <span className="text-[2.5vw] sm:text-lg md:text-2xl font-bold text-white tracking-tight passero-one-regular">GROW</span>
+              <span className="text-[4vw] sm:text-lg md:text-2xl font-bold text-white tracking-tight passero-one-regular">GROW</span>
             </motion.div>
 
-            <h1 className="text-[9vw] xs:text-[38px] sm:text-[70px] md:text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent whitespace-nowrap passero-one-regular">
+            <h1 className="text-[11vw] sm:text-[60px] md:text-[80px] lg:text-[90px] leading-[0.9] font-medium tracking-[-0.03em] bg-[linear-gradient(90deg,#fff_0%,#01C000_30%,#01C000_60%,#fff_100%)] bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent whitespace-nowrap passero-one-regular">
               Online
             </h1>
           </div>
