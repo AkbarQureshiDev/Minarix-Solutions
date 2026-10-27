@@ -11,7 +11,11 @@ import DigitalMarketing from "./components/Services/DigitalMarketing";
 import GraphicDesigning from "./components/Services/GraphicDesigning";
 import SmBranding from "./components/Services/SmBranding";
 import VideoEditing from "./components/Services/VideoEditing";
+import VideoShooting from "./components/Services/VideoShooting";
 import WebDevelopment from "./components/Services/WebDevelopment";
+
+// Client Work Pages
+import ClientWorkPage from "./components/ClientWork/ClientWorkPage";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +41,10 @@ const App = () => {
           <Route path="/services/graphic-designing" element={<GraphicDesigning />} />
           <Route path="/services/sm-branding" element={<SmBranding />} />
           <Route path="/services/video-editing" element={<VideoEditing />} />
+          <Route path="/services/video-shooting" element={<VideoShooting />} />
           <Route path="/services/web-development" element={<WebDevelopment />} />
+          <Route path="/dermyxclientwork" element={<ClientWorkPage slug="dermyx" />} />
+          <Route path="/neroclientwork" element={<ClientWorkPage slug="nero" />} />
         </Routes>
       </div>
     </ReactLenis>

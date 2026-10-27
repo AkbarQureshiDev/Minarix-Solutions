@@ -191,7 +191,7 @@ const Team: React.FC = () => {
                       </div>
 
                       <div className="absolute bottom-0 w-[340px] h-[340px]">
-                        <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-black/5 relative shadow-inner">
+                          <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-black/5 relative shadow-inner">
                           <img
                             src={member.image}
                             alt={member.name}

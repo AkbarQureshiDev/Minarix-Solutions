@@ -8,6 +8,8 @@ import WebDevelopmentImg from '../assets/Services/WebDevelopment.png';
 import DigitalMarketingImg from '../assets/Services/DigitalMarketing.png';
 import SmBrandingImg from '../assets/Services/SmBranding.png';
 import VideoEditingImg from '../assets/Services/VideoEditing.png';
+// TODO: Replace with actual VideoShooting.png once added to src/assets/Services/
+import VideoShootingImg from '../assets/Services/Productionandshooting.png';
 
 interface Category {
   title: string;
@@ -46,6 +48,12 @@ const categories: Category[] = [
     description: 'Professional video production and editing to tell your story effectively.',
     img: VideoEditingImg,
     link: '/services/video-editing'
+  },
+  { 
+    title: 'Production & Shooting', 
+    description: 'From concept to camera — professional production and shooting for commercials, reels, brand films, and more.',
+    img: VideoShootingImg,
+    link: '/services/video-shooting'
   },
 ];
 

@@ -4,6 +4,7 @@ import Hero from "../components/Hero"
 import About from "../components/About"
 import Stats from "../components/Stats"
 import OurProcess from "../components/OurProcess"
+import Banners from "../components/Banners"
 import Services from "../components/Services"
 import Testimonials from "../components/Testimonials" 
 import Brands from "../components/Brands"
@@ -57,6 +58,7 @@ const Home = () => {
       <div className="gsap-3d-section"><Stats/></div>
       <div id="about" className="gsap-3d-section"><About/></div>
       <div id="process" className="gsap-3d-section"><OurProcess/></div>
+      <div className="gsap-3d-section"><Banners/></div>
       <div id="services" className="gsap-3d-section"><Services/></div>
       <div id="testimonials" className="gsap-3d-section"><Testimonials/></div>
       <div className="gsap-3d-section"><Brands/></div>
