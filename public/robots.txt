@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minarix-solutions.vercel.app/sitemap.xml
