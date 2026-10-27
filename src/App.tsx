@@ -4,7 +4,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import Loader from "./components/Loader";
 import { ReactLenis } from 'lenis/react';
-import gsap from "gsap";
 
 // Service Components
 import DigitalMarketing from "./components/Services/DigitalMarketing";
